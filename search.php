@@ -2,7 +2,7 @@
 /**
  * ****************************************************************************
  * myshop - MODULE FOR XOOPS
- * Copyright (c) Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * Copyright (c) Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -11,10 +11,10 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright       Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @copyright       Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package         myshop
- * @author 			Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @author 			Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * Version : $Id:
  * ****************************************************************************
@@ -27,7 +27,7 @@ require 'header.php';
 require_once MYSHOP_PATH.'class/tree.php';
 $GLOBALS['current_category'] = -1;		// Block categories
 $xoopsOption['template_main'] = 'myshop_search.html';
-require_once XOOPS_ROOT_PATH.'/header.php';
+require_once XOOPS_ROOT_PATH . '/header.php';
 
 $limit = myshop_utils::getModuleOption('newproducts');
 $categories = $manufacturers = $stores = array();
@@ -189,5 +189,5 @@ $xoopsTpl->assign('search_form',$sform->render());
 
 myshop_utils::setCSS();
 
-require_once XOOPS_ROOT_PATH.'/footer.php';
+require_once XOOPS_ROOT_PATH . '/footer.php';
 ?>

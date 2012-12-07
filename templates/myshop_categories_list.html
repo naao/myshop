@@ -2,11 +2,16 @@
 	<table width="100%" cellspacing="0">
   	<tr>
     	<td class="category-list">
-			<table border='0' cellspacing='5' cellpadding='0' align='center' class="myshop_categorylist">
+			<table border='0' cellspacing='5' cellpadding='0' align='center' class="table">
 			<tr>
 				<{foreach item=category from=$categories}>
 					<td valign="top">
-						<a href="<{$category.cat_url_rewrited}>" title="<{$category.cat_href_title}>"><{if $category.cat_imgurl != ''}><img src="<{$category.cat_full_imgurl}>" border="0" alt="" /><{else}><img src="<{$smarty.const.MYSHOP_IMAGES_URL}>icon-cat.png" alt="" /><{/if}>
+						<a href="<{$category.cat_url_rewrited}>" title="<{$category.cat_href_title}>">
+                            <{if $category.cat_imgurl != ''}>
+                                <img src="<{$category.cat_full_imgurl}>" width="100%" border="0" alt="" />
+                            <{else}>
+                                <img src="<{$smarty.const.MYSHOP_IMAGES_URL}>icon-cat.png" alt="" />
+                            <{/if}>
 						<b><{$category.cat_title}></b></a>
 	    			</td>
     				<{if $category.count is div by 3}>

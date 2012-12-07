@@ -4,10 +4,10 @@ require_once '../../../include/cp_header.php';
 require_once '../include/common.php';
 
 require_once MYSHOP_PATH.'admin/functions.php';
-require_once XOOPS_ROOT_PATH.'/class/tree.php';
-require_once XOOPS_ROOT_PATH.'/class/uploader.php';
-require_once XOOPS_ROOT_PATH.'/class/pagenav.php';
-require_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
+require_once XOOPS_ROOT_PATH . '/class/tree.php';
+require_once XOOPS_ROOT_PATH . '/class/uploader.php';
+require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
+require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 require_once MYSHOP_PATH.'class/tree.php';
 
 $op = 'dashboard';

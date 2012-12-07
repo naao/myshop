@@ -2,7 +2,7 @@
 /**
  * ****************************************************************************
  * myshop - MODULE FOR XOOPS
- * Copyright (c) Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * Copyright (c) Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -11,10 +11,10 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright       Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @copyright       Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package         myshop
- * @author 			Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @author 			Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * Version : $Id:
  * ****************************************************************************
@@ -24,9 +24,9 @@ if (!defined('XOOPS_ROOT_PATH')) {
 	die("XOOPS root path not defined");
 }
 
-include_once XOOPS_ROOT_PATH.'/class/xoopsobject.php';
+include_once XOOPS_ROOT_PATH . '/class/xoopsobject.php';
 if (!class_exists('Myshop_XoopsPersistableObjectHandler')) {
-	include_once XOOPS_ROOT_PATH.'/modules/myshop/class/PersistableObjectHandler.php';
+	include_once XOOPS_ROOT_PATH . '/modules/myshop/class/PersistableObjectHandler.php';
 }
 
 class myshop_persistent_cart extends Myshop_Object
@@ -50,9 +50,9 @@ class MyshopMyshop_persistent_cartHandler extends Myshop_XoopsPersistableObjectH
 	}
 
 	/**
-	 * Supprime un produit des paniers enregistrés
+	 * Supprime un produit des paniers enregistrï¿½s
 	 *
-	 * @param mixed $persistent_product_id	L'ID du produit à supprimer ou un tableau d'identifiants à supprimer
+	 * @param mixed $persistent_product_id	L'ID du produit ï¿½ supprimer ou un tableau d'identifiants ï¿½ supprimer
 	 * @return boolean
 	 */
 	function deleteProductForAllCarts($persistent_product_id)
@@ -72,7 +72,7 @@ class MyshopMyshop_persistent_cartHandler extends Myshop_XoopsPersistableObjectH
 	 * Purge des produits d'un utilisateur
 	 *
 	 * @param integer $persistent_uid	L'identifiant de l'utilisateur
-	 * @return boolean	Le résultat de la suppression
+	 * @return boolean	Le rï¿½sultat de la suppression
 	 */
 	function deleteAllUserProducts($persistent_uid = 0)
 	{
@@ -90,7 +90,7 @@ class MyshopMyshop_persistent_cartHandler extends Myshop_XoopsPersistableObjectH
 	 *
 	 * @param integer $persistent_product_id	L'identifiant du produit
 	 * @param integer $persistent_uid	L'identifiant de l'utilisateur
-	 * @return boolean	Le résultat de la suppression
+	 * @return boolean	Le rï¿½sultat de la suppression
 	 */
 	function deleteUserProduct($persistent_product_id, $persistent_uid = 0)
 	{
@@ -108,9 +108,9 @@ class MyshopMyshop_persistent_cartHandler extends Myshop_XoopsPersistableObjectH
 	 * Ajoute un produit au panier d'un utilisateur
 	 *
 	 * @param integer $persistent_product_id	L'ID du produit
-	 * @param integer $persistent_qty	La quantité de produits
+	 * @param integer $persistent_qty	La quantitï¿½ de produits
 	 * @param integer $persistent_uid	L'ID de l'utilisateur
-	 * @return boolean	Le résultat de l'ajout du produit
+	 * @return boolean	Le rï¿½sultat de l'ajout du produit
 	 */
 	function addUserProduct($persistent_product_id, $persistent_qty, $persistent_uid = 0)
 	{
@@ -127,12 +127,12 @@ class MyshopMyshop_persistent_cartHandler extends Myshop_XoopsPersistableObjectH
 	}
 
     /**
-     * Mise à jour de la quantité de produit d'un utilisateur
+     * Mise ï¿½ jour de la quantitï¿½ de produit d'un utilisateur
      *
      * @param integer $persistent_product_id	L'identifiant du produit
-     * @param integer $persistent_qty	La quantité de produit
+     * @param integer $persistent_qty	La quantitï¿½ de produit
      * @param integer $persistent_uid	L'ID de l'utilisateur
-     * @return boolean	Le résultat de la mise à jour
+     * @return boolean	Le rï¿½sultat de la mise ï¿½ jour
      */
 	function updateUserProductQuantity($persistent_product_id, $persistent_qty, $persistent_uid = 0)
 	{

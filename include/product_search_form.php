@@ -6,7 +6,7 @@
 if (!defined('XOOPS_ROOT_PATH')) {
 	die('XOOPS root path not defined');
 }
-require_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
+require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 $sform = new XoopsThemeForm(myshop_utils::getModuleName().' - '._MYSHOP_SEARCHFOR, 'productsSearchForm', MYSHOP_URL.'search.php','post');
 $sform->addElement(new XoopsFormText(_MYSHOP_TEXT,'product_text',50,255, ''), false);
 $sform->addElement(new XoopsFormSelectMatchOption(_MYSHOP_TYPE, 'search_type', 3), false);

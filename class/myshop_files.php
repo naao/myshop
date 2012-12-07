@@ -2,7 +2,7 @@
 /**
  * ****************************************************************************
  * myshop - MODULE FOR XOOPS
- * Copyright (c) Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * Copyright (c) Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -11,26 +11,26 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright       Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @copyright       Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package         myshop
- * @author 			Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @author 			Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * Version : $Id:
  * ****************************************************************************
  */
 
 /**
- * Gestion des fichies attachés aux produits
+ * Gestion des fichies attachï¿½s aux produits
  */
 
 if (!defined('XOOPS_ROOT_PATH')) {
 	die("XOOPS root path not defined");
 }
 
-include_once XOOPS_ROOT_PATH.'/class/xoopsobject.php';
+include_once XOOPS_ROOT_PATH . '/class/xoopsobject.php';
 if (!class_exists('Myshop_XoopsPersistableObjectHandler')) {
-	include_once XOOPS_ROOT_PATH.'/modules/myshop/class/PersistableObjectHandler.php';
+	include_once XOOPS_ROOT_PATH . '/modules/myshop/class/PersistableObjectHandler.php';
 }
 
 class myshop_files extends Myshop_Object
@@ -65,7 +65,7 @@ class myshop_files extends Myshop_Object
 	}
 
 	/**
-	 * Indique si le fichier attaché existe physiquement sur le site
+	 * Indique si le fichier attachï¿½ existe physiquement sur le site
 	 * @return boolean
 	 */
 	function fileExists()
@@ -77,7 +77,7 @@ class myshop_files extends Myshop_Object
 	}
 
 	/**
-	 * Retourne l'url pour accéder au fichier
+	 * Retourne l'url pour accï¿½der au fichier
 	 * @return string
 	 */
 	function getURL()
@@ -89,7 +89,7 @@ class myshop_files extends Myshop_Object
 	}
 
 	/**
-	 * Retourne le chemin physique pour accéder au fichier
+	 * Retourne le chemin physique pour accï¿½der au fichier
 	 * @return string
 	 */
 	function getPath()
@@ -113,15 +113,15 @@ class myshop_files extends Myshop_Object
 class MyshopMyshop_filesHandler extends Myshop_XoopsPersistableObjectHandler
 {
 	function __construct($db)
-	{	//							Table			Classe		 	Id			Libellé
+	{	//							Table			Classe		 	Id			Libellï¿½
 		parent::__construct($db, 'myshop_files', 'myshop_files', 'file_id', 'file_filename');
 	}
 
 	/**
-	 * Supprime un fichier (son fichier joint ET l'enregistrement dans la base de données)
+	 * Supprime un fichier (son fichier joint ET l'enregistrement dans la base de donnï¿½es)
 	 *
 	 * @param myshop_files $file
-	 * @return boolean	Le résultat de la suppression
+	 * @return boolean	Le rï¿½sultat de la suppression
 	 */
 	function deleteAttachedFile(myshop_files $file)
 	{
@@ -132,11 +132,11 @@ class MyshopMyshop_filesHandler extends Myshop_XoopsPersistableObjectHandler
 	}
 
 	/**
-	 * Retourne les fichiers attachés à un produit
+	 * Retourne les fichiers attachï¿½s ï¿½ un produit
 	 *
 	 * @param integer $file_product_id	L'Id du produit
-	 * @param integer $start	Position de départ
-	 * @param integer $limit	Nombre maxi de produits à retourner
+	 * @param integer $start	Position de dï¿½part
+	 * @param integer $limit	Nombre maxi de produits ï¿½ retourner
 	 * @return array	tableau d'objets de type myshop_files
 	 */
 	function getProductFiles($file_product_id, $start=0, $limit=0)
@@ -148,7 +148,7 @@ class MyshopMyshop_filesHandler extends Myshop_XoopsPersistableObjectHandler
 	}
 
 	/**
-	 * Retourne le nombre de fichiers attachés à un produit qui sont des MP3
+	 * Retourne le nombre de fichiers attachï¿½s ï¿½ un produit qui sont des MP3
 	 *
 	 * @param integer $file_product_id	L'Id du produit
 	 * @return integer	le nombre de fichiers MP3
@@ -162,7 +162,7 @@ class MyshopMyshop_filesHandler extends Myshop_XoopsPersistableObjectHandler
 	}
 
 	/**
-	 * Retourne le nombre de fichiers attachés à un produit
+	 * Retourne le nombre de fichiers attachï¿½s ï¿½ un produit
 	 *
 	 * @param integer $file_product_id	L'Id du produit
 	 * @return integer	le nombre de fichiers
@@ -174,7 +174,7 @@ class MyshopMyshop_filesHandler extends Myshop_XoopsPersistableObjectHandler
 	}
 
 	/**
-	 * Retourne le code HTML à utiliser pour affiche le lecteur de fichiers MP3
+	 * Retourne le code HTML ï¿½ utiliser pour affiche le lecteur de fichiers MP3
 	 * @param array	$attachedFiles	La liste des fichiers MP3
 	 */
 	function getHtmlCodeForDewplayer($attachedFiles)
@@ -200,7 +200,7 @@ class MyshopMyshop_filesHandler extends Myshop_XoopsPersistableObjectHandler
 	}
 
 	/**
-	 * Supprime les fichiers attachés à un produit
+	 * Supprime les fichiers attachï¿½s ï¿½ un produit
 	 *
 	 * @param integer $file_product_id	L'Id du produit
 	 * @return void

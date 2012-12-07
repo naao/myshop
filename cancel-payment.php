@@ -6,7 +6,7 @@
 require 'header.php';
 $GLOBALS['current_category'] = -1;
 $xoopsOption['template_main'] = 'myshop_cancelpurchase.html';
-require_once XOOPS_ROOT_PATH.'/header.php';
+require_once XOOPS_ROOT_PATH . '/header.php';
 
 require_once MYSHOP_PATH.'class/myshop_paypal.php';
 if(isset($_GET['id'])) {
@@ -24,5 +24,5 @@ $xoopsTpl->assign('breadcrumb', myshop_utils::breadcrumb(array(MYSHOP_URL.basena
 $title = _MYSHOP_ORDER_CANCELED.' - '.myshop_utils::getModuleName();
 myshop_utils::setMetas($title, $title);
 myshop_utils::setCSS();
-require_once(XOOPS_ROOT_PATH.'/footer.php');
+require_once(XOOPS_ROOT_PATH . '/footer.php');
 ?>

@@ -4,9 +4,9 @@ if (!defined('XOOPS_ROOT_PATH')) {
 	die("XOOPS root path not defined");
 }
 
-include_once XOOPS_ROOT_PATH.'/class/xoopsobject.php';
+include_once XOOPS_ROOT_PATH . '/class/xoopsobject.php';
 if (!class_exists('Myshop_XoopsPersistableObjectHandler')) {
-	include_once XOOPS_ROOT_PATH.'/modules/myshop/class/PersistableObjectHandler.php';
+	include_once XOOPS_ROOT_PATH . '/modules/myshop/class/PersistableObjectHandler.php';
 }
 
 class myshop_related extends Myshop_Object
@@ -28,7 +28,7 @@ class MyshopMyshop_relatedHandler extends Myshop_XoopsPersistableObjectHandler
 	}
 
 	/**
-	 * Supprime les produits relatifs rattachés à un produit
+	 * Supprime les produits relatifs rattachï¿½s ï¿½ un produit
 	 *
 	 * @param integer $related_product_id	L'identifiant du produit pour lequel il faut faire la suppression
 	 */

@@ -2,7 +2,7 @@
 /**
  * ****************************************************************************
  * myshop - MODULE FOR XOOPS
- * Copyright (c) Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * Copyright (c) Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -11,10 +11,10 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright       Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @copyright       Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package         myshop
- * @author 			Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @author 			Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * Version : $Id:
  * ****************************************************************************
@@ -26,9 +26,9 @@
 require 'header.php';
 $GLOBALS['current_category'] = -1;
 $xoopsOption['template_main'] = 'myshop_recommended.html';
-require_once XOOPS_ROOT_PATH.'/header.php';
+require_once XOOPS_ROOT_PATH . '/header.php';
 require_once MYSHOP_PATH.'class/registryfile.php';
-require_once XOOPS_ROOT_PATH.'/class/pagenav.php';
+require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
 
 // Initialize
 $tbl_products = $tbl_categories = $tbl_stores = $tbl_users = $tbl_tmp_user  = $tbl_tmp_categ = $tbl_tmp_lang = $tbl_tmp_vat = $tbl_vat = array();
@@ -73,5 +73,5 @@ $xoopsTpl->assign('breadcrumb', myshop_utils::breadcrumb(array(MYSHOP_URL.basena
 
 myshop_utils::setCSS();
 myshop_utils::setMetas(_MYSHOP_RECOMMENDED.' - '.myshop_utils::getModuleName(), myshop_utils::getModuleName());
-require_once(XOOPS_ROOT_PATH.'/footer.php');
+require_once(XOOPS_ROOT_PATH . '/footer.php');
 ?>

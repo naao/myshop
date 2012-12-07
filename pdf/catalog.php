@@ -2,7 +2,7 @@
 /**
  * ****************************************************************************
  * myshop - MODULE FOR XOOPS
- * Copyright (c) Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * Copyright (c) Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -11,10 +11,10 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright       Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @copyright       Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package         myshop
- * @author 			Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @author 			Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * Version : $Id:
  * ****************************************************************************
@@ -25,7 +25,7 @@
  */
 
 require '../../../mainfile.php';
-require_once XOOPS_ROOT_PATH.'/modules/myshop/include/common.php';
+require_once XOOPS_ROOT_PATH . '/modules/myshop/include/common.php';
 
 error_reporting(0);
 @$xoopsLogger->activated = false;
@@ -34,13 +34,13 @@ if(myshop_utils::getModuleOption('pdf_catalog') != 1) {
 	die();
 }
 
-require_once XOOPS_ROOT_PATH.'/class/template.php';
+require_once XOOPS_ROOT_PATH . '/class/template.php';
 $details = isset($_POST['catalogFormat']) ? intval($_POST['catalogFormat']) : 0;
 $Tpl = new XoopsTpl();
 $vatArray = $tbl_categories  = array();
 $vatArray = $h_myshop_vat->getAllVats();
 $tbl_categories = $h_myshop_cat->getAllCategories();
-$Tpl->assign('mod_pref', $mod_pref);	// Préférences du module
+$Tpl->assign('mod_pref', $mod_pref);	// Prï¿½fï¿½rences du module
 
 $cat_cid = 0 ;
 $tbl_tmp = array();

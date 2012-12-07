@@ -4,9 +4,9 @@ if (!defined('XOOPS_ROOT_PATH')) {
 	die("XOOPS root path not defined");
 }
 
-include_once XOOPS_ROOT_PATH.'/class/xoopsobject.php';
+include_once XOOPS_ROOT_PATH . '/class/xoopsobject.php';
 if (!class_exists('Myshop_XoopsPersistableObjectHandler')) {
-	include_once XOOPS_ROOT_PATH.'/modules/myshop/class/PersistableObjectHandler.php';
+	include_once XOOPS_ROOT_PATH . '/modules/myshop/class/PersistableObjectHandler.php';
 }
 
 class myshop_manufacturer extends Myshop_Object
@@ -31,8 +31,8 @@ class myshop_manufacturer extends Myshop_Object
 	/**
 	 * Retourne l'URL d'une des 5 images du fabricant courant
 	 *
-	 * @param integer	$pictureNumber	Le numéro (de 1 à 5) de l'image que l'on souhaite récupérer
-	 * @return mixed	L'URL	Soit l'url de l'image soit False si l'indice passé en paramètre n'est pas correct
+	 * @param integer	$pictureNumber	Le numï¿½ro (de 1 ï¿½ 5) de l'image que l'on souhaite rï¿½cupï¿½rer
+	 * @return mixed	L'URL	Soit l'url de l'image soit False si l'indice passï¿½ en paramï¿½tre n'est pas correct
 	 */
 	function getPictureUrl($pictureNumber)
 	{
@@ -47,7 +47,7 @@ class myshop_manufacturer extends Myshop_Object
 	/**
 	 * Retourne le chemin de l'une des 5 images du fabricant courant
 	 *
-	 * @param integer	$pictureNumber	Le numéro (de 1 à 5) de l'image que l'on souhaite récupérer
+	 * @param integer	$pictureNumber	Le numï¿½ro (de 1 ï¿½ 5) de l'image que l'on souhaite rï¿½cupï¿½rer
 	 * @return string	Le chemin
 	 */
 	function getPicturePath($pictureNumber)
@@ -63,7 +63,7 @@ class myshop_manufacturer extends Myshop_Object
 	/**
 	 * Indique si une des 5 images du fabricant existe
 	 *
-	 * @param integer	$pictureNumber	Le numéro (de 1 à 5) de l'image que l'on souhaite récupérer
+	 * @param integer	$pictureNumber	Le numï¿½ro (de 1 ï¿½ 5) de l'image que l'on souhaite rï¿½cupï¿½rer
 	 * @return boolean	Vrai si l'image existe sinon faux
 	 */
 	function pictureExists($pictureNumber)
@@ -81,7 +81,7 @@ class myshop_manufacturer extends Myshop_Object
 	/**
 	 * Supprime une des 5 images du fabricant
 	 *
-	 * @param integer	$pictureNumber	Le numéro (de 1 à 5) de l'image que l'on souhaite récupérer
+	 * @param integer	$pictureNumber	Le numï¿½ro (de 1 ï¿½ 5) de l'image que l'on souhaite rï¿½cupï¿½rer
 	 * @return void
 	 */
 	function deletePicture($pictureNumber)
@@ -107,7 +107,7 @@ class myshop_manufacturer extends Myshop_Object
 	}
 
 	/**
-	 * Retourne l'url à utiliser pour accéder à la page d'un fabricant
+	 * Retourne l'url ï¿½ utiliser pour accï¿½der ï¿½ la page d'un fabricant
 	 *
 	 * @return string
 	 */
@@ -123,7 +123,7 @@ class myshop_manufacturer extends Myshop_Object
 	}
 
 	/**
-	 * Rentourne la chaine à envoyer dans une balise <a> pour l'attribut href
+	 * Rentourne la chaine ï¿½ envoyer dans une balise <a> pour l'attribut href
 	 *
 	 * @return string
 	 */
@@ -133,7 +133,7 @@ class myshop_manufacturer extends Myshop_Object
 	}
 
 	/**
-	 * Retourne l'initiale du fabricant (à modifier selon le sens de l'écriture !)
+	 * Retourne l'initiale du fabricant (ï¿½ modifier selon le sens de l'ï¿½criture !)
 	 * @return string	L'initiale
 	 */
 	function getInitial()
@@ -142,10 +142,10 @@ class myshop_manufacturer extends Myshop_Object
 	}
 
 	/**
-	 * Retourne les éléments du fabricant formatés pour affichage
+	 * Retourne les ï¿½lï¿½ments du fabricant formatï¿½s pour affichage
 	 *
-	 * @param string $format	Le format à utiliser
-	 * @return array	Les informations formatées
+	 * @param string $format	Le format ï¿½ utiliser
+	 * @return array	Les informations formatï¿½es
 	 */
 	function toArray($format = 's')
     {
@@ -171,9 +171,9 @@ class MyshopMyshop_manufacturerHandler extends Myshop_XoopsPersistableObjectHand
 	}
 
 	/**
-	 * Renvoie l'alphabet à partir de la première lettre du nom des fabricants
+	 * Renvoie l'alphabet ï¿½ partir de la premiï¿½re lettre du nom des fabricants
 	 *
-	 * @return array l'alphabet des lettres utilisées !
+	 * @return array l'alphabet des lettres utilisï¿½es !
 	 */
 	 function getAlphabet()
 	 {
@@ -194,7 +194,7 @@ class MyshopMyshop_manufacturerHandler extends Myshop_XoopsPersistableObjectHand
 	 * Supprime un fabricant et tout ce qui est relatif
 	 *
 	 * @param myshop_manufacturer $manufacturer
-	 * @return boolean	Le résultat de la suppression
+	 * @return boolean	Le rï¿½sultat de la suppression
 	 */
 	 function deleteManufacturer(myshop_manufacturer $manufacturer)
 	 {
@@ -203,10 +203,10 @@ class MyshopMyshop_manufacturerHandler extends Myshop_XoopsPersistableObjectHand
 	 }
 
 	/**
-	 * Retourne le nombre de produits associés à un fabricant
+	 * Retourne le nombre de produits associï¿½s ï¿½ un fabricant
 	 *
 	 * @param integer $manu_id	L'identifiant du fabricant
-	 * @return integer	Le nombre de produis associés à un fabricant
+	 * @return integer	Le nombre de produis associï¿½s ï¿½ un fabricant
 	 */
 	 function getManufacturerProductsCount($manu_id)
 	 {
@@ -233,18 +233,18 @@ class MyshopMyshop_manufacturerHandler extends Myshop_XoopsPersistableObjectHand
 	/**
 	 * Retourne les produits d'un fabricant (note, ce code serait mieux dans une facade)
 	 *
-	 * @param integer	$manu_id	Le fabricant dont on veut récupérer les produits
-	 * @param integer	$start		Position de départ
-	 * @param integer	$limit		Nombre maximum d'enregistrements à renvoyer
+	 * @param integer	$manu_id	Le fabricant dont on veut rï¿½cupï¿½rer les produits
+	 * @param integer	$start		Position de dï¿½part
+	 * @param integer	$limit		Nombre maximum d'enregistrements ï¿½ renvoyer
 	 * @return array	Objects de type myshop_products
 	 */
 	 function getManufacturerProducts($manu_id, $start = 0, $limit = 0)
 	 {
 	 	$ret = $productsIds = array();
 		global $h_myshop_productsmanu, $h_myshop_products;
-		// On commence par récupérer les ID des produits
+		// On commence par rï¿½cupï¿½rer les ID des produits
 		$productsIds = $h_myshop_productsmanu->getProductsIdsFromManufacturer($manu_id, $start, $limit);
-		// Puis les produits eux même
+		// Puis les produits eux mï¿½me
 		$ret = $h_myshop_products->getProductsFromIDs($productsIds);
 		return $ret;
 	 }

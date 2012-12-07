@@ -6,7 +6,7 @@ if (!defined('XOOPS_ROOT_PATH')) {
 
 function myshop_com_update($product_id, $total_num)
 {
-	include XOOPS_ROOT_PATH.'/modules/myshop/include/common.php';
+	include XOOPS_ROOT_PATH . '/modules/myshop/include/common.php';
 	global $h_myshop_products;
 	if(!is_object($h_myshop_products)) {
 		$handlers = myshop_handler::getInstance();

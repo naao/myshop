@@ -5,7 +5,7 @@ function b_myshop_bestsales_show($options)
 {
 	// '10|0';	// Display 10 products
 	global $xoopsConfig, $xoopsTpl;
-	include XOOPS_ROOT_PATH.'/modules/myshop/include/common.php';
+	include XOOPS_ROOT_PATH . '/modules/myshop/include/common.php';
 	$categoryId = $options[1];
 	$start = 0;
 	$limit = $options[0];
@@ -33,7 +33,7 @@ function b_myshop_bestsales_edit($options)
 {
 	// '10|0';	// Display 10 products, all categories
 	global $xoopsConfig;
-	include XOOPS_ROOT_PATH.'/modules/myshop/include/common.php';
+	include XOOPS_ROOT_PATH . '/modules/myshop/include/common.php';
 	include_once MYSHOP_PATH.'class/tree.php';
 	$tblCategories = array();
 	$tblCategories = $h_myshop_cat->getAllCategories();

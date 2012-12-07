@@ -43,6 +43,7 @@ define("_MYSHOP_EXTRA_ID","Extra ID");
 define("_MYSHOP_WIDTH","Width");
 define("_MYSHOP_LENGTH","Length");
 define("_MYSHOP_PRICE","Price");
+define("_MYSHOP_PURCHASE_PRICE","Purchase");
 define("_MYSHOP_SHIPPING_PRICE","Shipping");
 define("_MYSHOP_DISCOUNT_PRICE","Discount price");
 define("_MYSHOP_COVER_PICTURE","Cover's picture");
@@ -86,6 +87,7 @@ define("_MYSHOP_CART","Cart");
 define("_MYSHOP_RSS_FEED","RSS Feeds");
 define("_MYSHOP_BY"," By ");
 define("_MYSHOP_ADD_TO_CART","Add to cart");
+define("_MYSHOP_ERROR0","Less stock. We are sorry to quantity of your choice is not available.");
 define("_MYSHOP_ERROR1","Error, this product does not exists");
 define("_MYSHOP_ERROR2","Error, this product is not online");
 define("_MYSHOP_ERROR3","Error, this product is not yet published");
@@ -172,7 +174,9 @@ define("_MYSHOP_COPY_COUNT","copy");
 define("_MYSHOP_THANKYOU_CMD","Thank you for your order on the website %s");
 define("_MYSHOP_NEW_COMMAND","New purchase on the site");
 define("_MYSHOP_COMMAND","Command ");	// For paypal
+define("_MYSHOP_PAY_CCARD","Pay with Credit Card");
 define("_MYSHOP_PAY_PAYPAL","Pay with Paypal");
+define("_MYSHOP_PAY_ONLINE","Pay Online");
 define("_MYSHOP_PURCHASE_FINSISHED","Purchase Fisnished");
 define("_MYSHOP_CONTINUE_SHOPPING","You can continue your visit on our site");
 define("_MYSHOP_THANK_YOU","Thank you very much for your payment, your order will be processed as soon as possible.");
@@ -200,7 +204,7 @@ define('_MYSHOP_CGV', "General Conditions Of Sale");
 define("_MYSHOP_DUPLICATE_PRODUCT","Duplicate product");
 define("_MYSHOP_DUPLICATE_DISCOUNT","Duplicate discount");
 define("_MYSHOP_HITS","Hits");
-define("_MYSHOP_PRODUCT_ID","Product's ID");
+define("_MYSHOP_PRODUCT_ID","製品 ID");
 define("_MYSHOP_COMM_NAME","Commercial Name");
 define("_MYSHOP_YOU_CAN_DOWNLOAD","You can download your product(s) here :");
 
@@ -209,7 +213,7 @@ define("_MYSHOP_RECOMMENDED", "Recommended Produtcs");
 define("_MYSHOP_SEEMORE_RECOMM", "See more recommended products");
 define("_MYSHOP_PRODUCT","Product");
 
-define("_MYSHOP_PAY_ONLINE","Do you want to pay online ?");
+define("_MYSHOP_ASK_PAY_ONLINE","Do you want to pay online ?");
 define("_MYSHOP_FINISH","Your order is finished");
 
 define("_MYSHOP_ECOTAXE","Ecotaxe");

@@ -20,7 +20,7 @@ if($cat_cid > 0) {
 }
 // Display blocks
 $xoopsOption['template_main'] = 'myshop_category.html';
-require_once XOOPS_ROOT_PATH.'/header.php';
+require_once XOOPS_ROOT_PATH . '/header.php';
 $vatArray = $tbl_categories  = array();
 $limit = myshop_utils::getModuleOption('perpage');
 
@@ -170,7 +170,7 @@ if( (is_object($category) && $category->getVar('cat_pid') == 0) || $cat_cid == 0
 	$productsCount = $h_myshop_products->getTotalPublishedProductsCount($cat_cid);
 	$limit = myshop_utils::getModuleOption('perpage');
 	if ( $productsCount > $limit ) {
-		require_once XOOPS_ROOT_PATH.'/class/pagenav.php';
+		require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
 		$catLink = $category->getLink();
 		$pagenav = new XoopsPageNav( $productsCount, $limit, $start, 'start', 'cat_cid='.$cat_cid);
 		$xoopsTpl->assign('pagenav', $pagenav->renderNav());
@@ -215,5 +215,5 @@ if( (is_object($category) && $category->getVar('cat_pid') == 0) || $cat_cid == 0
 }
 
 myshop_utils::setCSS();
-require_once(XOOPS_ROOT_PATH.'/footer.php');
+require_once(XOOPS_ROOT_PATH . '/footer.php');
 ?>

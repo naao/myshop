@@ -6,7 +6,7 @@ function b_myshop_new_show($options)
 {
 	// '10|0';	// Display 10 products from all categories or specify category id
 	global $xoopsConfig, $xoopsTpl;
-	include XOOPS_ROOT_PATH.'/modules/myshop/include/common.php';
+	include XOOPS_ROOT_PATH . '/modules/myshop/include/common.php';
 	$tblLivres = $tblCategories = $tblTmp = $tbl_tmp_vat = $tbl_vat = $tbl_tmp_lang = $block = $tbl_books_id = array();
 	$tblLivres = $h_myshop_products->getRecentProducts(0, $options[0], $options[1]);
 	if(count($tblLivres) > 0) {
@@ -25,7 +25,7 @@ function b_myshop_new_edit($options)
 {
 	// '10|0|0';	// Display 10 products, all categories
 	global $xoopsConfig;
-	include XOOPS_ROOT_PATH.'/modules/myshop/include/common.php';
+	include XOOPS_ROOT_PATH . '/modules/myshop/include/common.php';
 	include_once MYSHOP_PATH.'class/tree.php';
 	$tblCategories = array();
 	$tblCategories = $h_myshop_cat->getAllCategories();

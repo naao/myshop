@@ -6,7 +6,7 @@ function b_myshop_category_show($options)
 {
 	global $xoopsTpl;
 	$block = array();
-	include XOOPS_ROOT_PATH.'/modules/myshop/include/common.php';
+	include XOOPS_ROOT_PATH . '/modules/myshop/include/common.php';
 	$url = MYSHOP_URL.'include/myshop.css';
 	$xoopsTpl->assign("xoops_module_header", "<link rel=\"stylesheet\" type=\"text/css\" href=\"$url\" />");
 	$block['nostock_msg'] = myshop_utils::getModuleOption('nostock_msg');
@@ -17,10 +17,10 @@ function b_myshop_category_show($options)
 			return false;
 		}
 		$cat_cid = intval($GLOBALS['current_category']);
-		include XOOPS_ROOT_PATH.'/modules/myshop/include/common.php';
+		include XOOPS_ROOT_PATH . '/modules/myshop/include/common.php';
 
 		if($cat_cid > 0 ) {
-			include_once XOOPS_ROOT_PATH.'/class/tree.php';
+			include_once XOOPS_ROOT_PATH . '/class/tree.php';
 			$tbl_categories = $tblChilds = $tbl_tmp = array();
 			$tbl_categories = $h_myshop_cat->getAllCategories();
 			$mytree = new XoopsObjectTree($tbl_categories, 'cat_cid', 'cat_pid');
@@ -50,7 +50,7 @@ function b_myshop_category_show($options)
 	} else {	
 		// Normal display
 		$block['block_option'] = 1;
-		include XOOPS_ROOT_PATH.'/modules/myshop/include/common.php';
+		include XOOPS_ROOT_PATH . '/modules/myshop/include/common.php';
 		include_once MYSHOP_PATH.'class/tree.php';
 		$tbl_categories = $h_myshop_cat->getAllCategories();
 		$mytree = new Myshop_XoopsObjectTree($tbl_categories, 'cat_cid', 'cat_pid');
@@ -70,7 +70,7 @@ function b_myshop_category_show($options)
 function b_myshop_category_edit($options)
 {
 	global $xoopsConfig;
-	include XOOPS_ROOT_PATH.'/modules/myshop/include/common.php';
+	include XOOPS_ROOT_PATH . '/modules/myshop/include/common.php';
 
 	$checkeds = array('','');
 	$checkeds[$options[0]] = 'checked';

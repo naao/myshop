@@ -6,7 +6,7 @@ function b_myshop_promotion_show($options)
 {
 	// '10|0';	// Display 10 products from all categories or specify category id
 	global $xoopsConfig, $xoopsTpl;
-	include XOOPS_ROOT_PATH.'/modules/myshop/include/common.php';
+	include XOOPS_ROOT_PATH . '/modules/myshop/include/common.php';
 	$block = $products = array();
 	$start = 0;
 	$limit = $options[0];
@@ -34,7 +34,7 @@ function b_myshop_promotion_edit($options)
 {
 	// '10|0';	// Display 10 products from all categories or specify category id
 	global $xoopsConfig;
-	include XOOPS_ROOT_PATH.'/modules/myshop/include/common.php';
+	include XOOPS_ROOT_PATH . '/modules/myshop/include/common.php';
 	include_once MYSHOP_PATH.'class/tree.php';
 	$tblCategories = array();
 	$tblCategories = $h_myshop_cat->getAllCategories();

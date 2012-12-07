@@ -2,7 +2,7 @@
 /**
  * ****************************************************************************
  * myshop - MODULE FOR XOOPS
- * Copyright (c) Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * Copyright (c) Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -11,10 +11,10 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright       Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @copyright       Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package         myshop
- * @author 			Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @author 			Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * Version : $Id:
  * ****************************************************************************
@@ -32,7 +32,7 @@ $datasPaypal = false;
 $success = true;
 
 $xoopsOption['template_main'] = 'myshop_thankyou.html';
-require_once XOOPS_ROOT_PATH.'/header.php';
+require_once XOOPS_ROOT_PATH . '/header.php';
 $h_myshop_caddy->emptyCart();
 $xoopsTpl->assign('success', $success);
 
@@ -42,5 +42,5 @@ $xoopsTpl->assign('breadcrumb', myshop_utils::breadcrumb(array(MYSHOP_URL.basena
 $title = _MYSHOP_PURCHASE_FINSISHED.' - '.myshop_utils::getModuleName();
 myshop_utils::setMetas($title, $title);
 myshop_utils::setCSS();
-require_once(XOOPS_ROOT_PATH.'/footer.php');
+require_once(XOOPS_ROOT_PATH . '/footer.php');
 ?>

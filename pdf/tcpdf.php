@@ -124,24 +124,24 @@
 /**
  * main configuration file
  */
-require_once(dirname(__FILE__).'/config/tcpdf_config.php');
+require_once(dirname(__FILE__) . '/config/tcpdf_config.php');
 
 // includes some support files
 
 /**
  * unicode data
  */
-require_once(dirname(__FILE__).'/unicode_data.php');
+require_once(dirname(__FILE__) . '/unicode_data.php');
 
 /**
  * html colors table
  */
-require_once(dirname(__FILE__).'/htmlcolors.php');
+require_once(dirname(__FILE__) . '/htmlcolors.php');
 
 /**
  * barcode class
  */
-require_once(dirname(__FILE__)."/barcodes.php");
+require_once(dirname(__FILE__) . "/barcodes.php");
 
 
 if (!class_exists('TCPDF')) {

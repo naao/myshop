@@ -2,7 +2,7 @@
 /**
  * ****************************************************************************
  * myshop - MODULE FOR XOOPS
- * Copyright (c) Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * Copyright (c) Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -11,28 +11,29 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright       Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @copyright       Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package         myshop
- * @author 			Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @author 			Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * Version : $Id:
  * ****************************************************************************
  */
 
-if (!defined('XOOPS_ROOT_PATH')) exit();
-
+if (!defined('XOOPS_ROOT_PATH')) {
+	die('XOOPS root path not defined');
+}
+$mydirpath = basename( dirname( dirname( __FILE__ ) ) ) ;
 
 $modversion['name'] = _MI_MYSHOP_NAME;
 $modversion['version'] = 1.7;
 $modversion['description'] = _MI_MYSHOP_DESC;
 $modversion['author'] = "Myshop is originally based on Bookshop module by Instant Zero";
-$modversion['credits'] = "Author Herve Thouzard. Review by Nuno Luciano";
+$modversion['credits'] = "Author Herve Thouzard. Update by Nuno Luciano";
 $modversion['help'] = '';
 $modversion['license'] = 'GPL';
 $modversion['official'] = 0;
-$modversion['image']       = 'module_icon.php' ;
-
+$modversion['image']       = file_exists( $mydirpath.'/module_icon.png' ) ? 'module_icon.png' : 'module_icon.php' ;
 $modversion['dirname'] = 'myshop';
 
 $modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
@@ -170,33 +171,42 @@ $modversion['blocks'][$cptb]['template'] = 'myshop_block_recommended.html';
 $modversion['hasMain'] = 1;
 $cptm = 0;
 require_once 'class/myshop_utils.php';
+
 if(myshop_utils::getModuleOption('use_price')) {
 	$cptm++;
 	$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME1;
-	$modversion['sub'][$cptm]['url'] = 'caddy.php';
+	$modversion['sub'][$cptm]['url'] = '';
+    $cptm++;
+    $modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME1_1;
+    $modversion['sub'][$cptm]['url'] = 'caddy.php';
+    $cptm++;
+    $modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME1_2;
+    $modversion['sub'][$cptm]['url'] = 'order-history.php';
 }
-
 $cptm++;
-$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME3;
+$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME2;
+$modversion['sub'][$cptm]['url'] = '';
+$cptm++;
+$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME2_1;
+$modversion['sub'][$cptm]['url'] = 'recommended.php';
+$cptm++;
+$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME2_2;
 $modversion['sub'][$cptm]['url'] = 'category.php';
 $cptm++;
-/*$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME4;
+$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME2_3;
 $modversion['sub'][$cptm]['url'] = 'categories-map.php';
 $cptm++;
-$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME5;
-$modversion['sub'][$cptm]['url'] = 'whoswho.php';
-$cptm++;*/
-$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME6;
+$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME2_4;
 $modversion['sub'][$cptm]['url'] = 'all-products.php';
 $cptm++;
-$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME7;
+$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME2_5;
 $modversion['sub'][$cptm]['url'] = 'search.php';
 $cptm++;
-$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME8;
-$modversion['sub'][$cptm]['url'] = 'cgv.php';
+$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME3;
+$modversion['sub'][$cptm]['url'] = '';
 $cptm++;
-$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME9;
-$modversion['sub'][$cptm]['url'] = 'recommended.php';
+$modversion['sub'][$cptm]['name'] = _MI_MYSHOP_SMNAME3_1;
+$modversion['sub'][$cptm]['url'] = 'cgv.php';
 
 // Add parent categories as sub-menu 
 global $xoopsModule;
@@ -283,7 +293,7 @@ $modversion['templates'][$cptt]['file'] = 'myshop_map.html';
 $modversion['templates'][$cptt]['description'] = '';
 
 $cptt++;
-$modversion['templates'][$cptt]['file'] = 'myshop_whoswho.html';
+$modversion['templates'][$cptt]['file'] = 'myshop_orderhistory.html';
 $modversion['templates'][$cptt]['description'] = '';
 
 $cptt++;
@@ -350,6 +360,25 @@ $modversion['config'][$cpto]['valuetype'] = 'int';
 $modversion['config'][$cpto]['default'] = 1;
 
 /**
+ * Enable GMO-PG payment ?
+ */
+$cpto++;
+$modversion['config'][$cpto]['name'] = 'gmopg_payment';
+$modversion['config'][$cpto]['title'] = '_MI_MYSHOP_GMOPG_PAYMENT';
+$modversion['config'][$cpto]['description'] = '_MI_MYSHOP_GMOPG_PAY_DSC';
+$modversion['config'][$cpto]['formtype'] = 'yesno';
+$modversion['config'][$cpto]['valuetype'] = 'int';
+$modversion['config'][$cpto]['default'] = 0;
+$cpto++;
+$modversion['config'][$cpto] = array(
+    'name' => 'gmopg_url',
+    'title' => '_MI_MYSHOP_GMOPG_URL',
+    'description' => '_MI_MYSHOP_GMOPG_URL_DESC',
+    'formtype' => 'text',
+    'valuetype' => 'text',
+    'default' => ''
+);
+/**
  * Email address to use for Paypal
  */
 $cpto++;
@@ -409,7 +438,7 @@ $modversion['config'][$cpto]['title'] = '_MI_MYSHOP_MONEY_F';
 $modversion['config'][$cpto]['description'] = '';
 $modversion['config'][$cpto]['formtype'] = 'textbox';
 $modversion['config'][$cpto]['valuetype'] = 'text';
-$modversion['config'][$cpto]['default'] = 'euro(s)';
+$modversion['config'][$cpto]['default'] = 'å††';
 
 /**
  * Money, short label
@@ -420,7 +449,7 @@ $modversion['config'][$cpto]['title'] = '_MI_MYSHOP_MONEY_S';
 $modversion['config'][$cpto]['description'] = '';
 $modversion['config'][$cpto]['formtype'] = 'textbox';
 $modversion['config'][$cpto]['valuetype'] = 'text';
-$modversion['config'][$cpto]['default'] = '€';
+$modversion['config'][$cpto]['default'] = 'å††';
 
 /**
  * Decimals count
@@ -431,7 +460,7 @@ $modversion['config'][$cpto]['title'] = '_MI_MYSHOP_DECIMAL';
 $modversion['config'][$cpto]['description'] = '';
 $modversion['config'][$cpto]['formtype'] = 'textbox';
 $modversion['config'][$cpto]['valuetype'] = 'int';
-$modversion['config'][$cpto]['default'] = '2';
+$modversion['config'][$cpto]['default'] = '0';
 
 /**
  * Money symbol (left or right)
@@ -453,7 +482,7 @@ $modversion['config'][$cpto]['title'] = '_MI_MYSHOP_CONF04';
 $modversion['config'][$cpto]['description'] = '';
 $modversion['config'][$cpto]['formtype'] = 'textbox';
 $modversion['config'][$cpto]['valuetype'] = 'text';
-$modversion['config'][$cpto]['default'] = '[space]';
+$modversion['config'][$cpto]['default'] = ',';   //[space]
 
 /**
  * Decimal separator
@@ -464,7 +493,7 @@ $modversion['config'][$cpto]['title'] = '_MI_MYSHOP_CONF05';
 $modversion['config'][$cpto]['description'] = '';
 $modversion['config'][$cpto]['formtype'] = 'textbox';
 $modversion['config'][$cpto]['valuetype'] = 'text';
-$modversion['config'][$cpto]['default'] = ',';
+$modversion['config'][$cpto]['default'] = '.';
 
 /**
  * URL rewriting

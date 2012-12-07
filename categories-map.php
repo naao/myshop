@@ -6,7 +6,7 @@
 require 'header.php';
 $GLOBALS['current_category'] = -1;
 $xoopsOption['template_main'] = 'myshop_map.html';
-require_once XOOPS_ROOT_PATH.'/header.php';
+require_once XOOPS_ROOT_PATH . '/header.php';
 require_once MYSHOP_PATH.'class/tree.php';
 
 $xoopsTpl->assign('mod_pref', $mod_pref);
@@ -33,5 +33,5 @@ $xoopsTpl->assign('breadcrumb', myshop_utils::breadcrumb(array(MYSHOP_URL.basena
 
 $title = _MI_MYSHOP_SMNAME4.' - '.myshop_utils::getModuleName();
 myshop_utils::setMetas($title, $title);
-require_once XOOPS_ROOT_PATH.'/footer.php';
+require_once XOOPS_ROOT_PATH . '/footer.php';
 ?>

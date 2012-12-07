@@ -2,7 +2,7 @@
 /**
  * ****************************************************************************
  * myshop - MODULE FOR XOOPS
- * Copyright (c) Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * Copyright (c) Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -11,10 +11,10 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright       Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @copyright       Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package         myshop
- * @author 			Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @author 			Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * Version : $Id:
  * ****************************************************************************
@@ -28,7 +28,7 @@ if (!defined('XOOPS_ROOT_PATH')) {
  * A set of useful and common functions
  *
  * @package myshop
- * @author Hervé Thouzard - Instant Zero (http://xoops.instant-zero.com)
+ * @author Hervï¿½ Thouzard - Instant Zero (http://xoops.instant-zero.com)
  * @copyright (c) Instant Zero
  *
  * Note: You should be able to use it without the need to instanciate it.
@@ -310,7 +310,7 @@ class myshop_utils
 	function sendEmailFromTpl($tplName, $recipients, $subject, $variables)
 	{
 		global $xoopsConfig;
-		require_once XOOPS_ROOT_PATH.'/class/xoopsmailer.php';
+		require_once XOOPS_ROOT_PATH . '/class/xoopsmailer.php';
 		if(!is_array($recipients)) {
 			if(trim($recipients) == '') {
 				return false;
@@ -374,8 +374,8 @@ class myshop_utils
 		global $xoopsModule;
 		$folder = $xoopsModule->getVar('dirname');
 		$tpllist = array();
-		require_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
-		require_once XOOPS_ROOT_PATH.'/class/template.php';
+		require_once XOOPS_ROOT_PATH . '/class/xoopsblock.php';
+		require_once XOOPS_ROOT_PATH . '/class/template.php';
 		$tplfile_handler =& xoops_gethandler('tplfile');
 		$tpllist = $tplfile_handler->find(null, null, null, $folder);
 		xoops_template_clear_module_cache($xoopsModule->getVar('mid'));			// Clear module's blocks cache
@@ -693,131 +693,131 @@ class myshop_utils
 			$search[] = '&#'.$i.';';
 			$replace[] = chr($i);
 		}
-		$replace[]='...'; $search[]='…';
-		$replace[]="'";	$search[]='‘';
-		$replace[]="'";	$search[]= "’";
-		$replace[]='-';	$search[] ="&bull;";	// $replace[] = '•';
-		$replace[]='—'; $search[]='&mdash;';
+		$replace[]='...'; $search[]='ï¿½';
+		$replace[]="'";	$search[]='ï¿½';
+		$replace[]="'";	$search[]= "ï¿½";
+		$replace[]='-';	$search[] ="&bull;";	// $replace[] = 'ï¿½';
+		$replace[]='ï¿½'; $search[]='&mdash;';
 		$replace[]='-'; $search[]='&ndash;';
 		$replace[]='-'; $search[]='&shy;';
 		$replace[]='"'; $search[]='&quot;';
 		$replace[]='&'; $search[]='&amp;';
-		$replace[]='ˆ'; $search[]='&circ;';
-		$replace[]='¡'; $search[]='&iexcl;';
-		$replace[]='¦'; $search[]='&brvbar;';
-		$replace[]='¨'; $search[]='&uml;';
-		$replace[]='¯'; $search[]='&macr;';
-		$replace[]='´'; $search[]='&acute;';
-		$replace[]='¸'; $search[]='&cedil;';
-		$replace[]='¿'; $search[]='&iquest;';
-		$replace[]='˜'; $search[]='&tilde;';
-		$replace[]="'"; $search[]='&lsquo;';	// $replace[]='‘';
-		$replace[]="'"; $search[]='&rsquo;';	// $replace[]='’';
-		$replace[]='‚'; $search[]='&sbquo;';
-		$replace[]="'"; $search[]='&ldquo;';	// $replace[]='“';
-		$replace[]="'"; $search[]='&rdquo;';	// $replace[]='”';
-		$replace[]='„'; $search[]='&bdquo;';
-		$replace[]='‹'; $search[]='&lsaquo;';
-		$replace[]='›'; $search[]='&rsaquo;';
+		$replace[]='ï¿½'; $search[]='&circ;';
+		$replace[]='ï¿½'; $search[]='&iexcl;';
+		$replace[]='ï¿½'; $search[]='&brvbar;';
+		$replace[]='ï¿½'; $search[]='&uml;';
+		$replace[]='ï¿½'; $search[]='&macr;';
+		$replace[]='ï¿½'; $search[]='&acute;';
+		$replace[]='ï¿½'; $search[]='&cedil;';
+		$replace[]='ï¿½'; $search[]='&iquest;';
+		$replace[]='ï¿½'; $search[]='&tilde;';
+		$replace[]="'"; $search[]='&lsquo;';	// $replace[]='ï¿½';
+		$replace[]="'"; $search[]='&rsquo;';	// $replace[]='ï¿½';
+		$replace[]='ï¿½'; $search[]='&sbquo;';
+		$replace[]="'"; $search[]='&ldquo;';	// $replace[]='ï¿½';
+		$replace[]="'"; $search[]='&rdquo;';	// $replace[]='ï¿½';
+		$replace[]='ï¿½'; $search[]='&bdquo;';
+		$replace[]='ï¿½'; $search[]='&lsaquo;';
+		$replace[]='ï¿½'; $search[]='&rsaquo;';
 		$replace[]='<'; $search[]='&lt;';
 		$replace[]='>'; $search[]='&gt;';
-		$replace[]='±'; $search[]='&plusmn;';
-		$replace[]='«'; $search[]='&laquo;';
-		$replace[]='»'; $search[]='&raquo;';
-		$replace[]='×'; $search[]='&times;';
-		$replace[]='÷'; $search[]='&divide;';
-		$replace[]='¢'; $search[]='&cent;';
-		$replace[]='£'; $search[]='&pound;';
-		$replace[]='¤'; $search[]='&curren;';
-		$replace[]='¥'; $search[]='&yen;';
-		$replace[]='§'; $search[]='&sect;';
-		$replace[]='©'; $search[]='&copy;';
-		$replace[]='¬'; $search[]='&not;';
-		$replace[]='®'; $search[]='&reg;';
-		$replace[]='°'; $search[]='&deg;';
-		$replace[]='µ'; $search[]='&micro;';
-		$replace[]='¶'; $search[]='&para;';
-		$replace[]='·'; $search[]='&middot;';
-		$replace[]='†'; $search[]='&dagger;';
-		$replace[]='‡'; $search[]='&Dagger;';
-		$replace[]='‰'; $search[]='&permil;';
-		$replace[]='Euro'; $search[]='&euro;';		// $replace[]='€'
-		$replace[]='¼'; $search[]='&frac14;';
-		$replace[]='½'; $search[]='&frac12;';
-		$replace[]='¾'; $search[]='&frac34;';
-		$replace[]='¹'; $search[]='&sup1;';
-		$replace[]='²'; $search[]='&sup2;';
-		$replace[]='³'; $search[]='&sup3;';
-		$replace[]='á'; $search[]='&aacute;';
-		$replace[]='Á'; $search[]='&Aacute;';
-		$replace[]='â'; $search[]='&acirc;';
-		$replace[]='Â'; $search[]='&Acirc;';
-		$replace[]='à'; $search[]='&agrave;';
-		$replace[]='À'; $search[]='&Agrave;';
-		$replace[]='å'; $search[]='&aring;';
-		$replace[]='Å'; $search[]='&Aring;';
-		$replace[]='ã'; $search[]='&atilde;';
-		$replace[]='Ã'; $search[]='&Atilde;';
-		$replace[]='ä'; $search[]='&auml;';
-		$replace[]='Ä'; $search[]='&Auml;';
-		$replace[]='ª'; $search[]='&ordf;';
-		$replace[]='æ'; $search[]='&aelig;';
-		$replace[]='Æ'; $search[]='&AElig;';
-		$replace[]='ç'; $search[]='&ccedil;';
-		$replace[]='Ç'; $search[]='&Ccedil;';
-		$replace[]='ð'; $search[]='&eth;';
-		$replace[]='Ð'; $search[]='&ETH;';
-		$replace[]='é'; $search[]='&eacute;';
-		$replace[]='É'; $search[]='&Eacute;';
-		$replace[]='ê'; $search[]='&ecirc;';
-		$replace[]='Ê'; $search[]='&Ecirc;';
-		$replace[]='è'; $search[]='&egrave;';
-		$replace[]='È'; $search[]='&Egrave;';
-		$replace[]='ë'; $search[]='&euml;';
-		$replace[]='Ë'; $search[]='&Euml;';
-		$replace[]='ƒ'; $search[]='&fnof;';
-		$replace[]='í'; $search[]='&iacute;';
-		$replace[]='Í'; $search[]='&Iacute;';
-		$replace[]='î'; $search[]='&icirc;';
-		$replace[]='Î'; $search[]='&Icirc;';
-		$replace[]='ì'; $search[]='&igrave;';
-		$replace[]='Ì'; $search[]='&Igrave;';
-		$replace[]='ï'; $search[]='&iuml;';
-		$replace[]='Ï'; $search[]='&Iuml;';
-		$replace[]='ñ'; $search[]='&ntilde;';
-		$replace[]='Ñ'; $search[]='&Ntilde;';
-		$replace[]='ó'; $search[]='&oacute;';
-		$replace[]='Ó'; $search[]='&Oacute;';
-		$replace[]='ô'; $search[]='&ocirc;';
-		$replace[]='Ô'; $search[]='&Ocirc;';
-		$replace[]='ò'; $search[]='&ograve;';
-		$replace[]='Ò'; $search[]='&Ograve;';
-		$replace[]='º'; $search[]='&ordm;';
-		$replace[]='ø'; $search[]='&oslash;';
-		$replace[]='Ø'; $search[]='&Oslash;';
-		$replace[]='õ'; $search[]='&otilde;';
-		$replace[]='Õ'; $search[]='&Otilde;';
-		$replace[]='ö'; $search[]='&ouml;';
-		$replace[]='Ö'; $search[]='&Ouml;';
-		$replace[]='œ'; $search[]='&oelig;';
-		$replace[]='Œ'; $search[]='&OElig;';
-		$replace[]='š'; $search[]='&scaron;';
-		$replace[]='Š'; $search[]='&Scaron;';
-		$replace[]='ß'; $search[]='&szlig;';
-		$replace[]='þ'; $search[]='&thorn;';
-		$replace[]='Þ'; $search[]='&THORN;';
-		$replace[]='ú'; $search[]='&uacute;';
-		$replace[]='Ú'; $search[]='&Uacute;';
-		$replace[]='û'; $search[]='&ucirc;';
-		$replace[]='Û'; $search[]='&Ucirc;';
-		$replace[]='ù'; $search[]='&ugrave;';
-		$replace[]='Ù'; $search[]='&Ugrave;';
-		$replace[]='ü'; $search[]='&uuml;';
-		$replace[]='Ü'; $search[]='&Uuml;';
-		$replace[]='ý'; $search[]='&yacute;';
-		$replace[]='Ý'; $search[]='&Yacute;';
-		$replace[]='ÿ'; $search[]='&yuml;';
-		$replace[]='Ÿ'; $search[]='&Yuml;';
+		$replace[]='ï¿½'; $search[]='&plusmn;';
+		$replace[]='ï¿½'; $search[]='&laquo;';
+		$replace[]='ï¿½'; $search[]='&raquo;';
+		$replace[]='ï¿½'; $search[]='&times;';
+		$replace[]='ï¿½'; $search[]='&divide;';
+		$replace[]='ï¿½'; $search[]='&cent;';
+		$replace[]='ï¿½'; $search[]='&pound;';
+		$replace[]='ï¿½'; $search[]='&curren;';
+		$replace[]='ï¿½'; $search[]='&yen;';
+		$replace[]='ï¿½'; $search[]='&sect;';
+		$replace[]='ï¿½'; $search[]='&copy;';
+		$replace[]='ï¿½'; $search[]='&not;';
+		$replace[]='ï¿½'; $search[]='&reg;';
+		$replace[]='ï¿½'; $search[]='&deg;';
+		$replace[]='ï¿½'; $search[]='&micro;';
+		$replace[]='ï¿½'; $search[]='&para;';
+		$replace[]='ï¿½'; $search[]='&middot;';
+		$replace[]='ï¿½'; $search[]='&dagger;';
+		$replace[]='ï¿½'; $search[]='&Dagger;';
+		$replace[]='ï¿½'; $search[]='&permil;';
+		$replace[]='Euro'; $search[]='&euro;';		// $replace[]='ï¿½'
+		$replace[]='ï¿½'; $search[]='&frac14;';
+		$replace[]='ï¿½'; $search[]='&frac12;';
+		$replace[]='ï¿½'; $search[]='&frac34;';
+		$replace[]='ï¿½'; $search[]='&sup1;';
+		$replace[]='ï¿½'; $search[]='&sup2;';
+		$replace[]='ï¿½'; $search[]='&sup3;';
+		$replace[]='ï¿½'; $search[]='&aacute;';
+		$replace[]='ï¿½'; $search[]='&Aacute;';
+		$replace[]='ï¿½'; $search[]='&acirc;';
+		$replace[]='ï¿½'; $search[]='&Acirc;';
+		$replace[]='ï¿½'; $search[]='&agrave;';
+		$replace[]='ï¿½'; $search[]='&Agrave;';
+		$replace[]='ï¿½'; $search[]='&aring;';
+		$replace[]='ï¿½'; $search[]='&Aring;';
+		$replace[]='ï¿½'; $search[]='&atilde;';
+		$replace[]='ï¿½'; $search[]='&Atilde;';
+		$replace[]='ï¿½'; $search[]='&auml;';
+		$replace[]='ï¿½'; $search[]='&Auml;';
+		$replace[]='ï¿½'; $search[]='&ordf;';
+		$replace[]='ï¿½'; $search[]='&aelig;';
+		$replace[]='ï¿½'; $search[]='&AElig;';
+		$replace[]='ï¿½'; $search[]='&ccedil;';
+		$replace[]='ï¿½'; $search[]='&Ccedil;';
+		$replace[]='ï¿½'; $search[]='&eth;';
+		$replace[]='ï¿½'; $search[]='&ETH;';
+		$replace[]='ï¿½'; $search[]='&eacute;';
+		$replace[]='ï¿½'; $search[]='&Eacute;';
+		$replace[]='ï¿½'; $search[]='&ecirc;';
+		$replace[]='ï¿½'; $search[]='&Ecirc;';
+		$replace[]='ï¿½'; $search[]='&egrave;';
+		$replace[]='ï¿½'; $search[]='&Egrave;';
+		$replace[]='ï¿½'; $search[]='&euml;';
+		$replace[]='ï¿½'; $search[]='&Euml;';
+		$replace[]='ï¿½'; $search[]='&fnof;';
+		$replace[]='ï¿½'; $search[]='&iacute;';
+		$replace[]='ï¿½'; $search[]='&Iacute;';
+		$replace[]='ï¿½'; $search[]='&icirc;';
+		$replace[]='ï¿½'; $search[]='&Icirc;';
+		$replace[]='ï¿½'; $search[]='&igrave;';
+		$replace[]='ï¿½'; $search[]='&Igrave;';
+		$replace[]='ï¿½'; $search[]='&iuml;';
+		$replace[]='ï¿½'; $search[]='&Iuml;';
+		$replace[]='ï¿½'; $search[]='&ntilde;';
+		$replace[]='ï¿½'; $search[]='&Ntilde;';
+		$replace[]='ï¿½'; $search[]='&oacute;';
+		$replace[]='ï¿½'; $search[]='&Oacute;';
+		$replace[]='ï¿½'; $search[]='&ocirc;';
+		$replace[]='ï¿½'; $search[]='&Ocirc;';
+		$replace[]='ï¿½'; $search[]='&ograve;';
+		$replace[]='ï¿½'; $search[]='&Ograve;';
+		$replace[]='ï¿½'; $search[]='&ordm;';
+		$replace[]='ï¿½'; $search[]='&oslash;';
+		$replace[]='ï¿½'; $search[]='&Oslash;';
+		$replace[]='ï¿½'; $search[]='&otilde;';
+		$replace[]='ï¿½'; $search[]='&Otilde;';
+		$replace[]='ï¿½'; $search[]='&ouml;';
+		$replace[]='ï¿½'; $search[]='&Ouml;';
+		$replace[]='ï¿½'; $search[]='&oelig;';
+		$replace[]='ï¿½'; $search[]='&OElig;';
+		$replace[]='ï¿½'; $search[]='&scaron;';
+		$replace[]='ï¿½'; $search[]='&Scaron;';
+		$replace[]='ï¿½'; $search[]='&szlig;';
+		$replace[]='ï¿½'; $search[]='&thorn;';
+		$replace[]='ï¿½'; $search[]='&THORN;';
+		$replace[]='ï¿½'; $search[]='&uacute;';
+		$replace[]='ï¿½'; $search[]='&Uacute;';
+		$replace[]='ï¿½'; $search[]='&ucirc;';
+		$replace[]='ï¿½'; $search[]='&Ucirc;';
+		$replace[]='ï¿½'; $search[]='&ugrave;';
+		$replace[]='ï¿½'; $search[]='&Ugrave;';
+		$replace[]='ï¿½'; $search[]='&uuml;';
+		$replace[]='ï¿½'; $search[]='&Uuml;';
+		$replace[]='ï¿½'; $search[]='&yacute;';
+		$replace[]='ï¿½'; $search[]='&Yacute;';
+		$replace[]='ï¿½'; $search[]='&yuml;';
+		$replace[]='ï¿½'; $search[]='&Yuml;';
 		$chaine = str_replace($search, $replace, $chaine);
 		return $chaine;
 	}
@@ -833,7 +833,7 @@ class myshop_utils
 	 */
 	function makeSeoUrl($content, $urw=1)
 	{
-		$s = "ÀÁÂÃÄÅÒÓÔÕÖØÈÉÊËÇÌÍÎÏÙÚÛÜŸÑàáâãäåòóôõöøèéêëçìíîïùúûüÿñ '()";
+		$s = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÜŸï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ '()";
 		$r = "AAAAAAOOOOOOEEEECIIIIUUUUYNaaaaaaooooooeeeeciiiiuuuuyn----";
 		$content = self::unhtml($content);	// First, remove html entities
 		$content = strtr($content, $s, $r);
@@ -944,17 +944,17 @@ class myshop_utils
 	}
 
 	/**
-	 * Fonction chargée de gérer l'upload
+	 * Fonction chargï¿½e de gï¿½rer l'upload
 	 *
-	 * @param integer $indice L'indice du fichier à télécharger
-	 * @return mixed True si l'upload s'est bien déroulé sinon le message d'erreur correspondant
+	 * @param integer $indice L'indice du fichier ï¿½ tï¿½lï¿½charger
+	 * @return mixed True si l'upload s'est bien dï¿½roulï¿½ sinon le message d'erreur correspondant
 	 */
 	function uploadFile($indice, $dstpath = XOOPS_UPLOAD_PATH, $mimeTypes = null, $uploadMaxSize = null)
 	{
-		require_once XOOPS_ROOT_PATH.'/class/uploader.php';
+		require_once XOOPS_ROOT_PATH . '/class/uploader.php';
 		global $destname;
 		if(isset($_POST['xoops_upload_file'])) {
-			require_once XOOPS_ROOT_PATH.'/class/uploader.php';
+			require_once XOOPS_ROOT_PATH . '/class/uploader.php';
 			$fldname = '';
 			$fldname = $_FILES[$_POST['xoops_upload_file'][$indice]];
 			$fldname = (get_magic_quotes_gpc()) ? stripslashes($fldname['name']) : $fldname['name'];

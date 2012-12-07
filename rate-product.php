@@ -2,7 +2,7 @@
 /**
  * ****************************************************************************
  * myshop - MODULE FOR XOOPS
- * Copyright (c) Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * Copyright (c) Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -11,10 +11,10 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright       Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @copyright       Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package         myshop
- * @author 			Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @author 			Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * Version : $Id:
  * ****************************************************************************
@@ -30,7 +30,7 @@ $product_id = 0;
 if(myshop_utils::getModuleOption('rateproducts') == 0 ) {
 	myshop_utils::redirect(_MYSHOP_NORATE, 'index.php', 5);
 }
-//  Product n°
+//  Product nï¿½
 if(isset($_GET['product_id'])) {
 	$product_id = intval($_GET['product_id']);
 } elseif(isset($_POST['product_id'])) {
@@ -103,7 +103,7 @@ if(!empty($_POST['btnsubmit'])) {
 } else {	// Display form
 	$GLOBALS['current_category'] = $product->getVar('product_cid');
 	$xoopsOption['template_main'] = 'myshop_rate_product.html';
-	require_once XOOPS_ROOT_PATH.'/header.php';
+	require_once XOOPS_ROOT_PATH . '/header.php';
 	$xoopsTpl->assign('mod_pref', $mod_pref);
 	$xoopsTpl->assign('product', $product->toArray());
 
@@ -118,5 +118,5 @@ if(!empty($_POST['btnsubmit'])) {
 }
 
 
-require_once XOOPS_ROOT_PATH.'/footer.php';
+require_once XOOPS_ROOT_PATH . '/footer.php';
 ?>

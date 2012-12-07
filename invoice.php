@@ -2,7 +2,7 @@
 /**
  * ****************************************************************************
  * myshop - MODULE FOR XOOPS
- * Copyright (c) Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * Copyright (c) Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -11,22 +11,22 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright       Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @copyright       Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package         myshop
- * @author 			Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @author 			Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * Version : $Id:
  * ****************************************************************************
  */
 
 /**
- * Visualisation d'une facture à l'écran
+ * Visualisation d'une facture ï¿½ l'ï¿½cran
  */
 require 'header.php';
 $GLOBALS['current_category'] = -1;
 $xoopsOption['template_main'] = 'myshop_bill.html';
-require_once XOOPS_ROOT_PATH.'/header.php';
+require_once XOOPS_ROOT_PATH . '/header.php';
 
 if(isset($_GET['id'])) {
 	$cmdId = intval($_GET['id']);
@@ -48,26 +48,26 @@ if(!is_object($order)) {
 	myshop_utils::redirect(_MYSHOP_ERROR11, 'index.php', 6);
 }
 
-// Vérification du mot de passe (si pas admin)
+// Vï¿½rification du mot de passe (si pas admin)
 if(!myshop_utils::isAdmin()) {
 	if($pass != $order->getVar('cmd_password')) {
 		myshop_utils::redirect(_MYSHOP_ERROR11, 'index.php', 6);
 	}
 }
 
-// Vérification de la validité de la facture (si pas admin)
+// Vï¿½rification de la validitï¿½ de la facture (si pas admin)
 if(!myshop_utils::isAdmin()) {
-	if($order->getVar('cmd_state') != MYSHOP_STATE_VALIDATED) {	// Commande non validée
+	if($order->getVar('cmd_state') != MYSHOP_STATE_VALIDATED) {	// Commande non validï¿½e
 		myshop_utils::redirect(_MYSHOP_ERROR12, 'index.php', 6);
 	}
 }
 
 $caddy = $tmp = $products = $vats = $manufacturers = $tmp2 = $manufacturers = $productsManufacturers = array();
 
-// Récupération des TVA
+// Rï¿½cupï¿½ration des TVA
 $vats = $h_myshop_vat->getAllVats();
 
-// Récupération des caddy associés
+// Rï¿½cupï¿½ration des caddy associï¿½s
 $caddy = $h_myshop_caddy->getCaddyFromCommand($cmdId);
 if(count($caddy) == 0) {
 	myshop_utils::redirect(_MYSHOP_ERROR11, 'index.php',6);
@@ -114,5 +114,5 @@ foreach($caddy as $itemCaddy) {
 myshop_utils::setCSS();
 $title = _MYSHOP_BILL.' - '.myshop_utils::getModuleName();
 myshop_utils::setMetas($title, $title);
-require_once XOOPS_ROOT_PATH.'/footer.php';
+require_once XOOPS_ROOT_PATH . '/footer.php';
 ?>

@@ -6,10 +6,10 @@ function myshop_adminMenu($currentoption = 0, $breadcrumb = '')
 	if(file_exists(XOOPS_ROOT_PATH.'/modules/myshop/language/'.$xoopsConfig['language'].'/modinfo.php')) {
 		require_once XOOPS_ROOT_PATH.'/modules/myshop/language/'.$xoopsConfig['language'].'/modinfo.php';
 	} else {
-		require_once XOOPS_ROOT_PATH.'/modules/myshop/language/english/modinfo.php';
+		require_once XOOPS_ROOT_PATH . '/modules/myshop/language/english/modinfo.php';
 	}
 	
-include dirname(__FILE__).'/menu.php' ;
+include dirname(__FILE__) . '/menu.php';
 
 $mydirname = basename( dirname( dirname( __FILE__ ) ) ) ;
 
@@ -46,8 +46,8 @@ foreach( array_keys( $adminmenu ) as $i ) {
 }
 
 // display
-require_once XOOPS_ROOT_PATH.'/class/template.php' ;
-$tpl =& new XoopsTpl() ;
+require_once XOOPS_ROOT_PATH . '/class/template.php';
+$tpl = new XoopsTpl() ;
 $tpl->assign( array(
 	'adminmenu' => $adminmenu ,
 ) ) ;

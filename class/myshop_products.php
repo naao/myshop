@@ -4,9 +4,9 @@ if (!defined('XOOPS_ROOT_PATH')) {
 	die("XOOPS root path not defined");
 }
 
-include_once XOOPS_ROOT_PATH.'/class/xoopsobject.php';
+include_once XOOPS_ROOT_PATH . '/class/xoopsobject.php';
 if (!class_exists('Myshop_XoopsPersistableObjectHandler')) {
-	include_once XOOPS_ROOT_PATH.'/modules/myshop/class/PersistableObjectHandler.php';
+	include_once XOOPS_ROOT_PATH . '/modules/myshop/class/PersistableObjectHandler.php';
 }
 
 class myshop_products extends Myshop_Object
@@ -361,7 +361,7 @@ class myshop_products extends Myshop_Object
 class MyshopMyshop_productsHandler extends Myshop_XoopsPersistableObjectHandler
 {
 	function __construct($db)
-	{	//							Table				Classe			 	Id			Libellé
+	{	//							Table				Classe			 	Id			Libellï¿½
 		parent::__construct($db, 'myshop_products', 'myshop_products', 'product_id', 'product_title');
 	}
 
@@ -471,7 +471,7 @@ class MyshopMyshop_productsHandler extends Myshop_XoopsPersistableObjectHandler
 	/**
 	 * Return last recommended products in a category
 	 *
-	 * @return integer Le nombre total de produits recommandés
+	 * @return integer Le nombre total de produits recommandï¿½s
 	 */
 	function getRecommendedCount()
 	{
@@ -906,10 +906,10 @@ class MyshopMyshop_productsHandler extends Myshop_XoopsPersistableObjectHandler
 	}
 
 	/**
-	 * Retourne des produits en fonction de leur IDs tout en tenant compte du fait qu'ils sont en ligne et payés !
+	 * Retourne des produits en fonction de leur IDs tout en tenant compte du fait qu'ils sont en ligne et payï¿½s !
 	 *
 	 * @param array $ids	Les identifiants des produits
-	 * @param boolean	$showAll	Afficher les produits même s'ils ne sont plus en stock ?
+	 * @param boolean	$showAll	Afficher les produits mï¿½me s'ils ne sont plus en stock ?
 	 * @return array	Tableau d'objets de type myshop_products
 	 */
 	function getProductsFromIDs($ids, $showAll = false)
@@ -917,7 +917,7 @@ class MyshopMyshop_productsHandler extends Myshop_XoopsPersistableObjectHandler
 		$ret = array();
 		if(is_array($ids)) {
 			$criteria = new CriteriaCompo();
-			if(myshop_utils::getModuleOption('show_unpublished') == 0) {	// Ne pas afficher les produits qui ne sont pas publiés
+			if(myshop_utils::getModuleOption('show_unpublished') == 0) {	// Ne pas afficher les produits qui ne sont pas publiï¿½s
 				$criteria->add(new Criteria('product_submitted', time(), '<='));
 			}
 			if(myshop_utils::getModuleOption('nostock_display') == 0 && !$showAll) {	// Se limiter aux seuls produits encore en stock
@@ -931,10 +931,10 @@ class MyshopMyshop_productsHandler extends Myshop_XoopsPersistableObjectHandler
 
 
 	/**
-	 * Retourne le nombre de produits d'une ou de plusieurs catégories
+	 * Retourne le nombre de produits d'une ou de plusieurs catï¿½gories
 	 *
-	 * @param mixed $cat_cid	Soit un ID de catégorie unique soit un tableau d'ID de catégories
-	 * @return integer	Le nombre de produits associés à cette catégorie
+	 * @param mixed $cat_cid	Soit un ID de catï¿½gorie unique soit un tableau d'ID de catï¿½gories
+	 * @return integer	Le nombre de produits associï¿½s ï¿½ cette catï¿½gorie
 	 */
 	function getCategoryProductsCount($cat_cid)
 	{
@@ -948,7 +948,7 @@ class MyshopMyshop_productsHandler extends Myshop_XoopsPersistableObjectHandler
 	}
 
 	/**
-	 * Retourne le nombre de produits associés à un vendeur
+	 * Retourne le nombre de produits associï¿½s ï¿½ un vendeur
 	 *
 	 * @param integer	$product_store_id	L'ID du vendeur
 	 * @return integer	Le nombre de produits
@@ -960,7 +960,7 @@ class MyshopMyshop_productsHandler extends Myshop_XoopsPersistableObjectHandler
 	}
 
 	/**
-	 * Retourne le nombre de produits associés à une TVA
+	 * Retourne le nombre de produits associï¿½s ï¿½ une TVA
 	 *
 	 * @param integer $product_vat_id	L'identifiant de la TVA
 	 * @return integer	Le nombre de produits
@@ -973,11 +973,11 @@ class MyshopMyshop_productsHandler extends Myshop_XoopsPersistableObjectHandler
 
 	function getProductSelector($label, $showAll = true, $sort = 'product_title', $order = 'ASC')
 	{
-		include_once XOOPS_ROOT_PATH."/class/xoopsformloader.php";
+		include_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php";
 		$criteria = new CriteriaCompo();
 		$criteria->add(new Criteria('product_id', 0, '<>'));
 		if(!$showAll) {
-			if(myshop_utils::getModuleOption('show_unpublished') == 0) {	// Ne pas afficher les produits qui ne sont pas publiés
+			if(myshop_utils::getModuleOption('show_unpublished') == 0) {	// Ne pas afficher les produits qui ne sont pas publiï¿½s
 				$criteria->add(new Criteria('product_submitted', time(), '<='));
 			}
 			if(myshop_utils::getModuleOption('nostock_display') == 0 ) {	// Se limiter aux seuls produits encore en stock
@@ -989,7 +989,7 @@ class MyshopMyshop_productsHandler extends Myshop_XoopsPersistableObjectHandler
 		$criteria->setOrder($order);
 		$itemsCount = $this->getCount($criteria);
 		if($itemsCount > MYSHOP_MAX_PRODUCTS) {
-			include_once XOOPS_ROOT_PATH.'/class/pagenav.php';
+			include_once XOOPS_ROOT_PATH . '/class/pagenav.php';
 			$pagenav = new XoopsPageNav( $itemsCount, MYSHOP_MAX_PRODUCTS, $start, 'startProduct');
 		}
 		$productTray = new XoopsFormElementTray($label, '<br />');

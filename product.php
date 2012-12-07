@@ -2,7 +2,7 @@
 /**
  * ****************************************************************************
  * myshop - MODULE FOR XOOPS
- * Copyright (c) Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * Copyright (c) Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -11,10 +11,10 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright       Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @copyright       Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package         myshop
- * @author 			Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @author 			Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * Version : $Id:
  * ****************************************************************************
@@ -24,7 +24,7 @@
  * Show Product
  */
 require 'header.php';
-require_once XOOPS_ROOT_PATH.'/class/tree.php';
+require_once XOOPS_ROOT_PATH . '/class/tree.php';
 
 $product_id = 0;
 
@@ -68,7 +68,7 @@ $title = strip_tags($product->getVar('product_title')).' - '.myshop_utils::getMo
 if(!isset($_GET['op'])) {
 	$xoopsOption['template_main'] = 'myshop_product.html';
 	$GLOBALS['current_category'] = $product->getVar('product_cid');
-	require_once XOOPS_ROOT_PATH.'/header.php';
+	require_once XOOPS_ROOT_PATH . '/header.php';
 } elseif(isset($_GET['op']) && $_GET['op'] == 'print') {	// Page to Print
 	$GLOBALS['current_category'] = 0;
 	$xoopsConfig['sitename'] = $title;
@@ -78,7 +78,7 @@ if(!isset($_GET['op'])) {
 	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"$url\" />";
 	echo "</head><body>";
 	if(!isset($xoopsTpl)) {
-		require_once XOOPS_ROOT_PATH.'/class/template.php';
+		require_once XOOPS_ROOT_PATH . '/class/template.php';
 		$xoopsTpl = new XoopsTpl();
 	}
 }
@@ -385,8 +385,8 @@ if(myshop_utils::getModuleOption('manual_meta')) {
 }
 
 if(!isset($_GET['op'])) {
-	require_once XOOPS_ROOT_PATH.'/include/comment_view.php';
-	require_once XOOPS_ROOT_PATH.'/footer.php';
+	require_once XOOPS_ROOT_PATH . '/include/comment_view.php';
+	require_once XOOPS_ROOT_PATH . '/footer.php';
 } elseif(isset($_GET['op']) && $_GET['op'] == 'print') {
 	$xoopsTpl->display('db:myshop_product.html');
 	xoops_footer();

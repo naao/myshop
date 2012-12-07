@@ -6,7 +6,7 @@
 require 'header.php';
 $GLOBALS['current_category'] = -1;
 $xoopsOption['template_main'] = 'myshop_caddy.html';
-require_once XOOPS_ROOT_PATH.'/header.php';
+require_once XOOPS_ROOT_PATH . '/header.php';
 require_once MYSHOP_PATH.'class/registryfile.php';
 
 $xoopsTpl->assign('mod_pref', $mod_pref);
@@ -32,6 +32,13 @@ if(isset($_POST['product_id'])) {
 	$productId = $_POST['product_id'];
 } elseif(isset($_GET['product_id'])) {
 	$productId = $_GET['product_id'];
+}
+
+$cmdId = 0;
+if(isset($_POST['cmd_id'])) {
+    $cmdId = $_POST['cmd_id'];
+} elseif(isset($_GET['cmd_id'])) {
+    $cmdId = $_GET['cmd_id'];
 }
 
 $xoopsTpl->assign('op', $op);
@@ -64,7 +71,7 @@ function listCart()
 	$xoopsTpl->assign('vatAmount', $myshop_Currency->amountForDisplay($vatAmount));	
 	$xoopsTpl->assign('discountsCount', $discountsCount);						
 	$xoopsTpl->assign('goOn', $goOn);													
-	$xoopsTpl->assign('commandAmountTTC', $myshop_Currency->amountForDisplay($commandAmountTTC, 'l'));
+	$xoopsTpl->assign('commandAmountTTC', $myshop_Currency->amountForDisplay($commandAmountTTC));
 	$xoopsTpl->assign('discountsDescription', $discountsDescription);
 	$showOrderButton = true;
 	if( xoops_trim(myshop_utils::getModuleOption('paypal_email')) == '' && myshop_utils::getModuleOption('offline_payment') == 0) {
@@ -84,7 +91,9 @@ switch ($op) {
 	
 	case 'update':	// Re-calculate quantity
 	
-		$h_myshop_caddy->updateQuantites();
+		if( !$h_myshop_caddy->updateQuantites() ){
+            myshop_utils::redirect(_MYSHOP_ERROR0, 'caddy.php', 4);
+        }
 		listCart();
 		break;
 
@@ -131,7 +140,26 @@ switch ($op) {
 		listCart();
 		break;
 
-	case 'default':
+    case 'purchased':	// Purchased list
+        $purchased = $h_myshop_caddy->purchased($xoopsUser->uid(),$cmdId);
+        $myshop_Currency = & myshop_Currency::getInstance();
+        foreach($purchased as $purchase){
+            $product[] = array(
+                'product_number' => $purchase['caddy_product_id'],
+                'product_title' => $purchase['product_title'],
+                'unitBasePriceFormated' => $myshop_Currency->amountForDisplay($purchase['caddy_price']),
+                'product_qty' => $purchase['caddy_qte'],
+                'discountedPriceWithQuantityFormated' => $purchase['caddy_qte'],
+                'discountedShippingFormated' => $myshop_Currency->amountForDisplay($purchase['caddy_shipping']),
+                'totalPriceFormated' => $myshop_Currency->amountForDisplay($purchase['caddy_price'])
+            );
+//                'totalPriceFormated' => $purchase['caddy_price'] * $purchase['caddy_qte'] + $purchase['caddy_shipping']
+        }
+        $xoopsTpl->assign('purchased',true);
+        $xoopsTpl->assign('caddieProducts',$product);
+        break;
+
+    case 'default':
 	
 		listCart();
 		break;
@@ -149,5 +177,5 @@ $xoopsTpl->assign('breadcrumb', myshop_utils::breadcrumb(array(MYSHOP_URL.basena
 
 $title = _MI_MYSHOP_SMNAME1.' - '.myshop_utils::getModuleName();
 myshop_utils::setMetas($title, $title);
-require_once XOOPS_ROOT_PATH.'/footer.php';
+require_once XOOPS_ROOT_PATH . '/footer.php';
 ?>

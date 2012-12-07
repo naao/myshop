@@ -67,8 +67,7 @@ class myshop_Currency
 	 */
     function amountForDisplay($amount, $format = 's')
     {
-		$amount = $this->amountInCurrency($amount);
-
+        $amount = $this->amountInCurrency($amount);
 		$monnaieLeft = $monnaieRight = $monnaieSleft = $monnaieSright = '';
 		if($this->_monnaiePlace == 1) {	// To the right
 			$monnaieRight = ' '.$this->_moneyFull;		// Long version

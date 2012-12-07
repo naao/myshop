@@ -6,8 +6,8 @@
 require 'header.php';
 $GLOBALS['current_category'] = -1;
 $xoopsOption['template_main'] = 'myshop_allproducts.html';
-require_once XOOPS_ROOT_PATH.'/header.php';
-require_once XOOPS_ROOT_PATH.'/class/pagenav.php';
+require_once XOOPS_ROOT_PATH . '/header.php';
+require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
 
 $categories = $vatArray = array();
 
@@ -70,5 +70,5 @@ $xoopsTpl->assign('breadcrumb', myshop_utils::breadcrumb(array(MYSHOP_URL.basena
 
 $title = _MI_MYSHOP_SMNAME6.' - '.myshop_utils::getModuleName();
 myshop_utils::setMetas($title, $title);
-require_once(XOOPS_ROOT_PATH.'/footer.php');
+require_once(XOOPS_ROOT_PATH . '/footer.php');
 ?>

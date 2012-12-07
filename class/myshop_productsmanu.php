@@ -4,9 +4,9 @@ if (!defined('XOOPS_ROOT_PATH')) {
 	die("XOOPS root path not defined");
 }
 
-include_once XOOPS_ROOT_PATH.'/class/xoopsobject.php';
+include_once XOOPS_ROOT_PATH . '/class/xoopsobject.php';
 if (!class_exists('Myshop_XoopsPersistableObjectHandler')) {
-	include_once XOOPS_ROOT_PATH.'/modules/myshop/class/PersistableObjectHandler.php';
+	include_once XOOPS_ROOT_PATH . '/modules/myshop/class/PersistableObjectHandler.php';
 }
 
 class myshop_productsmanu extends Myshop_Object
@@ -30,7 +30,7 @@ class MyshopMyshop_productsmanuHandler extends Myshop_XoopsPersistableObjectHand
 	}
 
 	/**
-	 * Retourne le nombre de produits associé à un fabricant
+	 * Retourne le nombre de produits associï¿½ ï¿½ un fabricant
 	 *
 	 * @param integer $pm_manu_id	L'identifiant du fabricant
 	 * @return integer	Le nombre de fabricants

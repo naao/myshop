@@ -4,9 +4,9 @@ if (!defined('XOOPS_ROOT_PATH')) {
 	die("XOOPS root path not defined");
 }
 
-include_once XOOPS_ROOT_PATH.'/class/xoopsobject.php';
+include_once XOOPS_ROOT_PATH . '/class/xoopsobject.php';
 if (!class_exists('Myshop_XoopsPersistableObjectHandler')) {
-	include_once XOOPS_ROOT_PATH.'/modules/myshop/class/PersistableObjectHandler.php';
+	include_once XOOPS_ROOT_PATH . '/modules/myshop/class/PersistableObjectHandler.php';
 }
 
 class myshop_cat extends Myshop_Object
@@ -173,7 +173,7 @@ class MyshopMyshop_catHandler extends Myshop_XoopsPersistableObjectHandler
 
 		if($withNested) {	// Search sub-categories
 			$items = $childs = array();
-			include_once XOOPS_ROOT_PATH.'/class/tree.php';
+			include_once XOOPS_ROOT_PATH . '/class/tree.php';
 			$items = $this->getAllCategories();
 			$mytree = new XoopsObjectTree($items, 'cat_cid', 'cat_pid');
 			$childs = $mytree->getAllChild($cat_cid);

@@ -4,9 +4,9 @@ if (!defined('XOOPS_ROOT_PATH')) {
 	die("XOOPS root path not defined");
 }
 
-include_once XOOPS_ROOT_PATH.'/class/xoopsobject.php';
+include_once XOOPS_ROOT_PATH . '/class/xoopsobject.php';
 if (!class_exists('Myshop_XoopsPersistableObjectHandler')) {
-	include_once XOOPS_ROOT_PATH.'/modules/myshop/class/PersistableObjectHandler.php';
+	include_once XOOPS_ROOT_PATH . '/modules/myshop/class/PersistableObjectHandler.php';
 }
 
 class myshop_stores extends Myshop_Object
@@ -22,18 +22,18 @@ class myshop_stores extends Myshop_Object
 class MyshopMyshop_storesHandler extends Myshop_XoopsPersistableObjectHandler
 {
 	function __construct($db)
-	{	//							Table				Classe		 	Id			Libellé
+	{	//							Table				Classe		 	Id			Libellï¿½
 		parent::__construct($db, 'myshop_stores', 'myshop_stores', 'store_id', 'store_name');
 	}
 
 	/**
 	 * Renvoie la liste de tous les vendeurs du module
 	 *
-	 * @param integer $start Position de départ
-	 * @param integer $limit Nombre total d'enregistrements à renvoyer
+	 * @param integer $start Position de dï¿½part
+	 * @param integer $limit Nombre total d'enregistrements ï¿½ renvoyer
 	 * @param string $order Champ sur lequel faire le tri
 	 * @param string $order Ordre du tri
-	 * @param boolean $idaskey Indique si le tableau renvoyé doit avoir pour clé l'identifiant unique de l'enregistrement
+	 * @param boolean $idaskey Indique si le tableau renvoyï¿½ doit avoir pour clï¿½ l'identifiant unique de l'enregistrement
 	 * @return array tableau d'objets de type stores
 	 */
 	function getAllStores($start = 0, $limit = 0, $sort = 'store_name', $order='ASC', $idaskey = true)
@@ -49,7 +49,7 @@ class MyshopMyshop_storesHandler extends Myshop_XoopsPersistableObjectHandler
 	}
 
 	/**
-	 * Retourne le nombre de produits associés à un vendeur
+	 * Retourne le nombre de produits associï¿½s ï¿½ un vendeur
 	 *
 	 * @param integer	$store_id	L'ID du vendeur
 	 * @return integer	Le nombre de produits du vendeur
@@ -64,7 +64,7 @@ class MyshopMyshop_storesHandler extends Myshop_XoopsPersistableObjectHandler
 	 * Supprime un vendeur
 	 *
 	 * @param myshop_stores $store
-	 * @return boolean	Le résultat de la suppression
+	 * @return boolean	Le rï¿½sultat de la suppression
 	 */
 	function deleteStore(myshop_stores $store)
 	{
@@ -74,7 +74,7 @@ class MyshopMyshop_storesHandler extends Myshop_XoopsPersistableObjectHandler
 	/**
 	 * Retourne des vendeurs selon leur ID
 	 *
-	 * @param array $ids	Les ID des vendeurs à retrouver
+	 * @param array $ids	Les ID des vendeurs ï¿½ retrouver
 	 * @return array	Objets de type myshop_stores
 	 */
 	function getStoresFromIds($ids)

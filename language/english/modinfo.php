@@ -19,14 +19,16 @@ define("_MI_MYSHOP_BNAME9","Recommended products");
 
 // Sub menu titles
 define("_MI_MYSHOP_SMNAME1","Cart");
-define("_MI_MYSHOP_SMNAME2","Index");
-define("_MI_MYSHOP_SMNAME3","Categories");
-define("_MI_MYSHOP_SMNAME4","Categories map");
-define("_MI_MYSHOP_SMNAME5","Who's who");
-define("_MI_MYSHOP_SMNAME6","All products");
-define("_MI_MYSHOP_SMNAME7","Search");
-define("_MI_MYSHOP_SMNAME8","General Conditions Of Sale");
-define("_MI_MYSHOP_SMNAME9","Recommended Products");
+define("_MI_MYSHOP_SMNAME1_1","&nbsp;Watch my cart");
+define("_MI_MYSHOP_SMNAME1_2","&nbsp;Order history");
+define("_MI_MYSHOP_SMNAME2","Products");
+define("_MI_MYSHOP_SMNAME2_1","&nbsp;Recommended Products");
+define("_MI_MYSHOP_SMNAME2_2","&nbsp;All products");
+define("_MI_MYSHOP_SMNAME2_3","&nbsp;Categories");
+define("_MI_MYSHOP_SMNAME2_4","&nbsp;Categories map");
+define("_MI_MYSHOP_SMNAME2_5","&nbsp;Search");
+define("_MI_MYSHOP_SMNAME3","etc");
+define("_MI_MYSHOP_SMNAME3_1","&nbsp;Sales policy");
 
 // Names of admin menu items
 define("_MI_MYSHOP_ADMENU0","Stores");
@@ -145,6 +147,11 @@ define('_MI_MYSHOP_OFF_PAY_DSC', "If you enable it, you must type some texts in 
 
 define('_MI_MYSHOP_USE_PRICE', "Do you want to use the price field?");
 define('_MI_MYSHOP_USE_PRICE_DSC', "With this option you can disable products price (to do a catalog for example)");
+
+define('_MI_MYSHOP_GMOPG_PAYMENT', "Do you want to use the GMO-PG?");
+define('_MI_MYSHOP_GMOPG_PAY_DSC', "If you chose this option set GMO-PG config");
+define('_MI_MYSHOP_GMOPG_URL', "GMO-PG payment URL");
+define('_MI_MYSHOP_GMOPG_URL_DSC', "URL config for GMO-PG module");
 
 define('_MI_MYSHOP_PERSISTENT_CART', "Do you want to use the persistent cart?");
 define('_MI_MYSHOP_PERSISTENT_CART_DSC', "when this option is set to Yes, the user's cart is saved (Warning, this option will consume resources)");

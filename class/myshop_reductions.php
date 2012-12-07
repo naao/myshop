@@ -2,7 +2,7 @@
 /**
  * ****************************************************************************
  * myshop - MODULE FOR XOOPS
- * Copyright (c) Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * Copyright (c) Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -11,10 +11,10 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright       Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @copyright       Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package         myshop
- * @author 			Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @author 			Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * Version : $Id:
  * ****************************************************************************
@@ -243,12 +243,13 @@ class myshop_reductions
 			$this->addAssociatedCategories($product);
 
 			// Order amount and discount
-			if($product->getVar('product_discount_price') > 0) {
-				$ht = floatval($product->getVar('product_discount_price'));
+            $productPrice = floatval($product->getVar('product_price'));
+/*            if($product->getVar('product_discount_price') > 0) {
+				$productPrice = floatval($product->getVar('product_discount_price'));
 			} else {
-				$ht = floatval($product->getVar('product_price'));
-			}
-			$this->totalAmountBeforeDiscounts += ($data['qty'] * $ht);
+				$productPrice = floatval($product->getVar('product_price'));
+			}*/
+			$this->totalAmountBeforeDiscounts += ($data['qty'] * $productPrice);
 
 			$newCart[] = $data;
 		}
@@ -332,12 +333,18 @@ class myshop_reductions
 
 		// Check each product and discount rule 
 		foreach($this->cart as $cartProduct) {
-			if($cartProduct['product']->getVar('product_discount_price') > 0) {
-				$ht = floatval($cartProduct['product']->getVar('product_discount_price'));
+            $vatId = $cartProduct['product']->getVar('product_vat_id');
+
+            if (count($vats)==0) break;
+            $vatRate = $vats[$vatId]->getVar('vat_rate');
+
+/*            if($cartProduct['product']->getVar('product_discount_price') > 0) {
+				$productPrice = floatval($cartProduct['product']->getVar('product_discount_price'));
 			} else {
-				$ht = floatval($cartProduct['product']->getVar('product_price'));
-			}
-			$discountedPrice = $ht;
+				$productPrice = floatval($cartProduct['product']->getVar('product_price'));
+			}*/
+            $productPrice = floatval($cartProduct['product']->getVar('product_price'));
+            $discountedPrice = floatval($cartProduct['product']->getVar('product_discount_price'));
 			$quantity = $cartProduct['qty'];
 
 			if(myshop_utils::getModuleOption('shipping_quantity')) {
@@ -345,10 +352,10 @@ class myshop_reductions
 			} else {
 				$discountedShipping = $cartProduct['product']->getVar('product_shipping_price');
 			}
-			$totalPrice = 0;
-			$reduction = '';
+            $totalPrice = 0;
+			$reduction = $discountedPrice ? _MYSHOP_FORSALE : '';
 
-			$cpt++;
+            $cpt++;
 			if(($cpt == $caddyCount)) {
 				$category = null;
 				$category = $this->handlers->h_myshop_cat->get($cartProduct['product']->getVar('product_cid'));
@@ -497,14 +504,19 @@ class myshop_reductions
 			}	// Check discounts
 
 			// Calculate product VAT
-			$vatId = $cartProduct['product']->getVar('product_vat_id');
-			$vatRate = $vats[$vatId]->getVar('vat_rate');
-			$vatAmount = myshop_utils::getVAT(($discountedPrice * $quantity), $vatRate);
+            if ($discountedPrice){
+                $vatAmount = myshop_utils::getVAT(($discountedPrice * $quantity), $vatRate);
+                $discountedPrice += $discountedPrice * (($vatRate)/100);
+                $totalPrice = ($discountedPrice * $quantity) + $discountedShipping;
+            }else{
+                $vatAmount = myshop_utils::getVAT(($productPrice * $quantity), $vatRate);
+                $productPrice += $productPrice * (($vatRate)/100);
+                $totalPrice = ($productPrice * $quantity) + $discountedShipping;
+            }
 			// Calculate product all fee ((ht * qte) + vat + shipping)
-			$totalPrice = ($discountedPrice * $quantity) + $vatAmount + $discountedShipping;
 
 			// Total
-			$totalHT += ($discountedPrice * $quantity);
+			$totalHT += $totalPrice;
 			$totalVAT += $vatAmount;
 			$totalShipping += $discountedShipping;
 
@@ -516,7 +528,7 @@ class myshop_reductions
 				$associatedStore = $this->associatedStores[$cartProduct['product']->product_store_id]->toArray();
 			}
 
-			// Catéegory
+			// Catï¿½egory
 			if(isset($this->associatedCategories[$cartProduct['product']->product_cid])) {
 				$associatedCategory = $this->associatedCategories[$cartProduct['product']->product_cid]->toArray();
 			}
@@ -540,12 +552,13 @@ class myshop_reductions
 			$productTemplate['id'] = $cartProduct['id'];
 			$productTemplate['product_qty'] = $cartProduct['qty'];
 
-			$productTemplate['unitBasePrice'] = $ht;				// Unity price HT (without vat) WITHOUT discount réduction
+			$productTemplate['unitBasePrice'] = $productPrice;				// Unity price HT (without vat) WITHOUT discount rï¿½duction
 			$productTemplate['discountedPrice'] = $discountedPrice;	// Unity price HT (without vat) WITH discount
 			$productTemplate['discountedPriceWithQuantity'] = $discountedPrice * $quantity;	// Price HT (without vat) WITH discount and quantity
 			// Formated prices
-			$productTemplate['unitBasePriceFormated'] = $myshop_Currency->amountForDisplay($ht);				
-			$productTemplate['discountedPriceFormated'] = $myshop_Currency->amountForDisplay($discountedPrice);	
+            $discountedPriceFormated = ($discountedPrice) * (100+$vatRate)/100;
+			$productTemplate['unitBasePriceFormated'] = $myshop_Currency->amountForDisplay($productPrice);				
+			$productTemplate['discountedPriceFormated'] = $myshop_Currency->amountForDisplay( $discountedPriceFormated );
 			$productTemplate['discountedPriceWithQuantityFormated'] = $myshop_Currency->amountForDisplay($discountedPrice * $quantity);
 
 			$productTemplate['vatRate'] = $myshop_Currency->amountInCurrency($vatRate);
@@ -556,7 +569,7 @@ class myshop_reductions
 			$productTemplate['reduction'] = $reduction;
 			$productTemplate['templateProduct'] = $cartProduct['product']->toArray();
 
-			$productTemplate['vatAmountFormated'] = $myshop_Currency->amountInCurrency($vatAmount);
+			$productTemplate['vatAmountFormated'] = $myshop_Currency->amountForDisplay($vatAmount);
 			$productTemplate['normalShippingFormated'] = $myshop_Currency->amountForDisplay($cartProduct['product']->getVar('product_shipping_price'));
 			$productTemplate['discountedShippingFormated'] = $myshop_Currency->amountForDisplay($discountedShipping);
 			$productTemplate['totalPriceFormated'] = $myshop_Currency->amountForDisplay($totalPrice);
@@ -600,7 +613,7 @@ class myshop_reductions
 		$shippingAmount = $totalShipping;
 		$commandAmount = $totalHT;
 		$vatAmount = $totalVAT;
-		$commandAmountTTC = $totalHT + $totalVAT + $totalShipping;
+		$commandAmountTTC = $totalHT;
 		$cartForTemplate = $this->cartForTemplate;
 		$emptyCart = false;
 		return true;

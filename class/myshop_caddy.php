@@ -4,9 +4,9 @@ if (!defined('XOOPS_ROOT_PATH')) {
 	die("XOOPS root path not defined");
 }
 
-include_once XOOPS_ROOT_PATH.'/class/xoopsobject.php';
+include_once XOOPS_ROOT_PATH . '/class/xoopsobject.php';
 if (!class_exists('Myshop_XoopsPersistableObjectHandler')) {
-	include_once XOOPS_ROOT_PATH.'/modules/myshop/class/PersistableObjectHandler.php';
+	include_once XOOPS_ROOT_PATH . '/modules/myshop/class/PersistableObjectHandler.php';
 }
 
 class myshop_caddy extends Myshop_Object
@@ -103,6 +103,22 @@ class MyshopMyshop_caddyHandler extends Myshop_XoopsPersistableObjectHandler
         return $ret;
 	}
 
+    function purchased($uid,$cmd_id=NULL)
+    {
+        $ret = array();
+        $sql = 'SELECT c.*,b.* FROM '.$this->table.' c '
+            .'LEFT JOIN '.$this->db->prefix('myshop_products').' b ON (c.caddy_product_id = b.product_id) '
+            .'LEFT JOIN '.$this->db->prefix('myshop_commands').' o ON (c.caddy_cmd_id = o.cmd_id) '
+            .'WHERE o.cmd_uid='.$uid;
+        if (!is_null($cmd_id)) $sql .= ' AND c.caddy_cmd_id='.$cmd_id;
+        $result = $this->db->query($sql);
+        if ($result) {
+            while ($myrow = $this->db->fetchArray($result)) {
+                $ret[$myrow['caddy_product_id']] = $myrow;
+            }
+        }
+        return $ret;
+    }
 
 	/**
 	 *
@@ -224,12 +240,13 @@ class MyshopMyshop_caddyHandler extends Myshop_XoopsPersistableObjectHandler
 	{
 		global $h_myshop_products, $xoopsUser, $h_myshop_persistent_cart;
 		$tbl_caddie = $tbl_caddie2 = array();
-		if(isset($_SESSION[self::CADDY_NAME])) {
+        $updated = false;
+        if(isset($_SESSION[self::CADDY_NAME])) {
 			$tbl_caddie = $_SESSION[self::CADDY_NAME];
 			foreach($tbl_caddie as $produit) {
 				$number = $produit['number'];
 				$name = 'qty_'.$number;
-				if(isset($_POST[$name])) {
+                if(isset($_POST[$name])) {
 					$valeur = intval($_POST[$name]);
 					if($valeur > 0) {
 						$product_id = $produit['id'];
@@ -239,7 +256,8 @@ class MyshopMyshop_caddyHandler extends Myshop_XoopsPersistableObjectHandler
 							if($product->getVar('product_stock') - $valeur > 0) {
 								$produit['qty'] = $valeur;
 								$tbl_caddie2[] = $produit;
-							} else {
+                                $updated = true;
+                            } else {
 								$produit['qty'] = $product->getVar('product_stock');
 								$tbl_caddie2[] = $produit;
 							}
@@ -258,7 +276,8 @@ class MyshopMyshop_caddyHandler extends Myshop_XoopsPersistableObjectHandler
 				unset($_SESSION[self::CADDY_NAME]);
 			}
 		}
-	}
+        return $updated;
+    }
 
 	/**
 	 * Return Order

@@ -2,8 +2,8 @@
 
 function myshop_search($queryarray, $andor, $limit, $offset, $userid){
 	global $xoopsDB;
-	require XOOPS_ROOT_PATH.'/modules/myshop/include/common.php';
-	require_once XOOPS_ROOT_PATH.'/modules/myshop/class/myshop_products.php';
+	require XOOPS_ROOT_PATH . '/modules/myshop/include/common.php';
+	require_once XOOPS_ROOT_PATH . '/modules/myshop/class/myshop_products.php';
 
 	// Products Search
 	$sql = 'SELECT product_id, product_title, product_submitted, product_submitter FROM '.$xoopsDB->prefix('myshop_products').' WHERE (product_online = 1';

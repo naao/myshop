@@ -4,9 +4,9 @@ if (!defined('XOOPS_ROOT_PATH')) {
 	die("XOOPS root path not defined");
 }
 
-include_once XOOPS_ROOT_PATH.'/class/xoopsobject.php';
+include_once XOOPS_ROOT_PATH . '/class/xoopsobject.php';
 if (!class_exists('Myshop_XoopsPersistableObjectHandler')) {
-	include_once XOOPS_ROOT_PATH.'/modules/myshop/class/PersistableObjectHandler.php';
+	include_once XOOPS_ROOT_PATH . '/modules/myshop/class/PersistableObjectHandler.php';
 }
 
 class myshop_votedata extends Myshop_Object
@@ -35,8 +35,8 @@ class MyshopMyshop_votedataHandler extends Myshop_XoopsPersistableObjectHandler
 	 * Return votes
 	 *
 	 * @param integer $product_id Identifiant du produit
-	 * @param integer $totalVotes Variable passée par référence et devant contenir le nombre total de votes du produit
-	 * @param integer $sumRating Variable passée par référence et devant contenir le cumul des votes
+	 * @param integer $totalVotes Variable passï¿½e par rï¿½fï¿½rence et devant contenir le nombre total de votes du produit
+	 * @param integer $sumRating Variable passï¿½e par rï¿½fï¿½rence et devant contenir le cumul des votes
 	 * @return none Rien
 	 */
 	function getCountRecordSumRating($product_id, &$totalVotes, &$sumRating)
@@ -75,7 +75,7 @@ class MyshopMyshop_votedataHandler extends Myshop_XoopsPersistableObjectHandler
 	 * Suppression des votes d'un produit
 	 *
 	 * @param integer $vote_product_id	L'identifiant du produit
-	 * @return le résultat de la suppression
+	 * @return le rï¿½sultat de la suppression
 	 */
 	function deleteProductRatings($vote_product_id)
 	{
@@ -84,11 +84,11 @@ class MyshopMyshop_votedataHandler extends Myshop_XoopsPersistableObjectHandler
 	}
 
 	/**
-	 * Indique si un utilisateur a déjà voté pour un produit
+	 * Indique si un utilisateur a dï¿½jï¿½ votï¿½ pour un produit
 	 *
 	 * @param integer $vote_uid	L'identifiant de l'utilisateur
-	 * @param integer $vote_product_id	Le numéro du produit
-	 * @return boolean	True s'il a déjà voté sinon False
+	 * @param integer $vote_product_id	Le numï¿½ro du produit
+	 * @return boolean	True s'il a dï¿½jï¿½ votï¿½ sinon False
 	 */
 	function hasUserAlreadyVoted($vote_uid, $vote_product_id)
 	{
@@ -102,7 +102,7 @@ class MyshopMyshop_votedataHandler extends Myshop_XoopsPersistableObjectHandler
 	}
 
 	/**
-	 * Indique si un utilisateur anonyme a déjà voté (d'après son adresse IP)
+	 * Indique si un utilisateur anonyme a dï¿½jï¿½ votï¿½ (d'aprï¿½s son adresse IP)
 	 *
 	 * @param string $ip	L'adresse IP
 	 * @param integer $vote_product_id	Ld'identifiant du produit
@@ -124,12 +124,12 @@ class MyshopMyshop_votedataHandler extends Myshop_XoopsPersistableObjectHandler
 	}
 
 	/**
-	 * Crée un vote pour un produit
+	 * Crï¿½e un vote pour un produit
 	 *
 	 * @param integer $vote_product_id	L'identifiant du produit
 	 * @param integer $vote_uid	L'identifiant de l'utilisateur
 	 * @param integer $vote_rating	Le vote
-	 * @return le résultat de la création du vote
+	 * @return le rï¿½sultat de la crï¿½ation du vote
 	 */
 	function createRating($vote_product_id, $vote_uid, $vote_rating)
 	{

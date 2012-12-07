@@ -2,7 +2,7 @@
 /**
  * ****************************************************************************
  * myshop - MODULE FOR XOOPS
- * Copyright (c) Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * Copyright (c) Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -11,10 +11,10 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright       Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @copyright       Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package         myshop
- * @author 			Hervé Thouzard of Instant Zero (http://www.instant-zero.com)
+ * @author 			Hervï¿½ Thouzard of Instant Zero (http://www.instant-zero.com)
  *
  * Version : $Id:
  * ****************************************************************************
@@ -26,7 +26,7 @@
 require 'header.php';
 $GLOBALS['current_category'] = -1;
 $xoopsOption['template_main'] = 'myshop_index.html';
-require_once XOOPS_ROOT_PATH.'/header.php';
+require_once XOOPS_ROOT_PATH . '/header.php';
 require_once MYSHOP_PATH.'class/registryfile.php';
 
 // Initialize
@@ -34,10 +34,11 @@ $start = isset($_GET['start']) ? intval($_GET['start']) : 0;
 $limit = myshop_utils::getModuleOption('newproducts');		// Max number to display
 $baseurl = MYSHOP_URL.basename(__FILE__);					// Script URL
 $registry = new myshop_registryfile();
+$lastTitle = "";
 
 // Template options
 $xoopsTpl->assign('nostock_msg', myshop_utils::getModuleOption('nostock_msg'));
-$xoopsTpl->assign('mod_pref', $mod_pref);
+$xoopsTpl->assign('mod_pref', $mod_pref);	// Prï¿½fï¿½rences du module
 $xoopsTpl->assign('welcome_msg', nl2br($registry->getfile(MYSHOP_TEXTFILE1)));
 
 
@@ -50,7 +51,7 @@ $xoopsTpl->assign('total_products_count', sprintf(_MYSHOP_THEREARE, $h_myshop_pr
 if($limit > 0) {
 	$itemsCount = $h_myshop_products->getRecentProductsCount();
 	if($itemsCount > $limit) {
-		require_once XOOPS_ROOT_PATH.'/class/pagenav.php';
+		require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
 		$pagenav = new XoopsPageNav( $itemsCount, $limit, $start);
 		$xoopsTpl->assign('pagenav', $pagenav->renderNav());
 	}
@@ -77,5 +78,4 @@ foreach($categories as $category) {
 
 myshop_utils::setCSS();
 myshop_utils::setMetas($lastTitle.' - '.myshop_utils::getModuleName(), myshop_utils::getModuleName());
-require_once(XOOPS_ROOT_PATH.'/footer.php');
-?>
+require_once(XOOPS_ROOT_PATH . '/footer.php');
